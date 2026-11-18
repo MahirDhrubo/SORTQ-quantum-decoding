@@ -1,0 +1,11 @@
+# Main Python environment (Python 3.11): decoding, sampling, symmetry detection / SORTQ flow, golden models.
+# Versions are the ones the paper's results were produced with. relay_bp is installed separately
+# (setup/relay_bp/build_relay_bp.sh) because it is patched.
+numpy==2.2.6
+scipy==1.17.1
+stim==1.16.0
+sinter==1.16.0
+pymatching==2.4.0
+networkx==3.6.1
+pynauty==2.8.8.1
+matplotlib==3.11.2

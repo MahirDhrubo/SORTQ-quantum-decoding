@@ -1,0 +1,8 @@
+vwb_dly1: 0 mismatching shots of 56; HAZARD-CHECK: reads checked 308320, RAW violations 0, WAR violations 0, writes scheduled 281188, real writes checked 281188, unscheduled 32866; FAIL; first hazard: HAZARD-MODEL: unscheduled write field 0 bank 1 addr 0 at 160 (sched 166)
+vwb_dly2: 55 mismatching shots of 56; HAZARD-CHECK: reads checked 266978, RAW violations 28942, WAR violations 0, writes scheduled 247653, real writes checked 247653, unscheduled 57884; FAIL; first hazard: HAZARD: step g 1 reads VHP cur bank 1 addr 0 at cycle 161, pending write at 161
+m_read_copy: 51 mismatching shots of 52; ; ; first hazard: 
+no_prefill: 1 mismatching shots of 2; ; ; first hazard: 
+c1_bank: 1 mismatching shots of 1; ; ; first hazard: HAZARD-MODEL: unscheduled write field 3 bank 0 addr 1 at 158 (sched -100)
+vnp_prev_write: 1 mismatching shots of 1; ; ; first hazard: HAZARD-MODEL: unscheduled write field 1 bank 1 addr 0 at 159 (sched -100)
+conv_early: 11 mismatching shots of 56; HAZARD-CHECK: reads checked 308222, RAW violations 0, WAR violations 0, writes scheduled 281043, real writes checked 281043, unscheduled 0; FAIL; first hazard: 
+finished

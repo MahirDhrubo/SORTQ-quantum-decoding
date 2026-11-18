@@ -1,0 +1,30 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
+| Date         : Sat Nov 14 05:19:56 2026
+| Host         : <redacted> running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_utilization -hierarchical -hierarchical_depth 4 -file ./util_synth_hier.rpt
+| Design       : h_vnu_d5
+| Device       : xcvu19p-fsva3824-2-e
+| Speed File   : -2
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++--------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+|   Instance   | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++--------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+| h_vnu_d5     |  (top) |        346 |        346 |       0 |    0 | 135 |      0 |      0 |    0 |          0 |
+|   (h_vnu_d5) |  (top) |         40 |         40 |       0 |    0 |  94 |      0 |      0 |    0 |          0 |
+|   dut        |    vnu |        306 |        306 |       0 |    0 |  41 |      0 |      0 |    0 |          0 |
++--------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+
+

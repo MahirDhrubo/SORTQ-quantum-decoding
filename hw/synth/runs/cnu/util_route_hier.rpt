@@ -1,0 +1,31 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
+| Date         : Fri Nov 13 09:33:56 2026
+| Host         : <redacted> running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_utilization -hierarchical -hierarchical_depth 4 -file ./util_route_hier.rpt
+| Design       : h_cnu
+| Device       : xcvu19p-fsva3824-2-e
+| Speed File   : -2
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+|  Instance | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++-----------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+| h_cnu     |  (top) |        997 |        997 |       0 |    0 | 594 |      0 |      0 |    0 |          0 |
+|   (h_cnu) |  (top) |        190 |        190 |       0 |    0 | 403 |      0 |      0 |    0 |          0 |
+|   dut     |    cnu |        810 |        810 |       0 |    0 | 191 |      0 |      0 |    0 |          0 |
++-----------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

@@ -1,0 +1,2099 @@
+{
+ "circuit": "<path>=bicycle_bivariate_72_12_6_memory_X,distance=6,rounds=6,error_rate=0.003,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim",
+ "matrix": {
+  "rows": 252,
+  "cols": 2232,
+  "nnz": 7776,
+  "rounds": 7
+ },
+ "convention": {
+  "anc0": 72,
+  "g1_image_of_anc0": 73,
+  "g2_image_of_anc0": 78,
+  "coordinate": "ancilla g1^a g2^b (anc0) has coordinate (a, b) in Z6 x Z6",
+  "shift": "edge (check at x, round r) -- (error at position t, home h): offset = r - h, shift = t - x",
+  "base_edge": "edge = image under g = x of base edge (check (0,0), round r) -- (error type placed at position = shift)",
+  "error_position": "t chosen so the column's set {(offset, shift)} is lexicographically smallest",
+  "ancilla_of_coordinate": {
+   "0,0": 72,
+   "0,1": 78,
+   "0,2": 84,
+   "0,3": 90,
+   "0,4": 96,
+   "0,5": 102,
+   "1,0": 73,
+   "1,1": 79,
+   "1,2": 85,
+   "1,3": 91,
+   "1,4": 97,
+   "1,5": 103,
+   "2,0": 74,
+   "2,1": 80,
+   "2,2": 86,
+   "2,3": 92,
+   "2,4": 98,
+   "2,5": 104,
+   "3,0": 75,
+   "3,1": 81,
+   "3,2": 87,
+   "3,3": 93,
+   "3,4": 99,
+   "3,5": 105,
+   "4,0": 76,
+   "4,1": 82,
+   "4,2": 88,
+   "4,3": 94,
+   "4,4": 100,
+   "4,5": 106,
+   "5,0": 77,
+   "5,1": 83,
+   "5,2": 89,
+   "5,3": 95,
+   "5,4": 101,
+   "5,5": 107
+  }
+ },
+ "group": {
+  "order": 36,
+  "generators_nauty": 2,
+  "orders_g1_g2": [
+   6,
+   6
+  ],
+  "structure": [
+   6,
+   6
+  ],
+  "abelian": true,
+  "free_transitive_on_ancillas": true
+ },
+ "basis": "Z",
+ "check_type": "X",
+ "bulk_ref_round": 2,
+ "base_edge_table": [
+  {
+   "check_type": "X",
+   "error_type": "T00",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T00",
+   "round_offset": 1,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T01",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T01",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T01",
+   "round_offset": 0,
+   "shift_a": 3,
+   "shift_b": 5
+  },
+  {
+   "check_type": "X",
+   "error_type": "T02",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T02",
+   "round_offset": 0,
+   "shift_a": 1,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T02",
+   "round_offset": 0,
+   "shift_a": 5,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T03",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T03",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T03",
+   "round_offset": 1,
+   "shift_a": 1,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T04",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T04",
+   "round_offset": 0,
+   "shift_a": 3,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T04",
+   "round_offset": 1,
+   "shift_a": 3,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T05",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T05",
+   "round_offset": 1,
+   "shift_a": 0,
+   "shift_b": 5
+  },
+  {
+   "check_type": "X",
+   "error_type": "T05",
+   "round_offset": 1,
+   "shift_a": 3,
+   "shift_b": 4
+  },
+  {
+   "check_type": "X",
+   "error_type": "T06",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T06",
+   "round_offset": 1,
+   "shift_a": 4,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T06",
+   "round_offset": 1,
+   "shift_a": 5,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 1,
+   "shift_a": 1,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 1,
+   "shift_a": 4,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 4
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 1,
+   "shift_a": 4,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 1,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 3,
+   "shift_b": 5
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 4,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 4,
+   "shift_b": 4
+  }
+ ],
+ "error_types_per_home_round": {
+  "0": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08",
+   "T09"
+  ],
+  "1": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08",
+   "T09"
+  ],
+  "2": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08",
+   "T09"
+  ],
+  "3": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08",
+   "T09"
+  ],
+  "4": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08",
+   "T09"
+  ],
+  "5": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08",
+   "T09"
+  ],
+  "6": [
+   "T01",
+   "T02"
+  ]
+ },
+ "bulk_rounds_same_type_set": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "base_edge_table_round2": [
+  {
+   "check_type": "X",
+   "error_type": "T00",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T00",
+   "round_offset": 1,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T01",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T01",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T01",
+   "round_offset": 0,
+   "shift_a": 3,
+   "shift_b": 5
+  },
+  {
+   "check_type": "X",
+   "error_type": "T02",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T02",
+   "round_offset": 0,
+   "shift_a": 1,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T02",
+   "round_offset": 0,
+   "shift_a": 5,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T03",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T03",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T03",
+   "round_offset": 1,
+   "shift_a": 1,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T04",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T04",
+   "round_offset": 0,
+   "shift_a": 3,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T04",
+   "round_offset": 1,
+   "shift_a": 3,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T05",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T05",
+   "round_offset": 1,
+   "shift_a": 0,
+   "shift_b": 5
+  },
+  {
+   "check_type": "X",
+   "error_type": "T05",
+   "round_offset": 1,
+   "shift_a": 3,
+   "shift_b": 4
+  },
+  {
+   "check_type": "X",
+   "error_type": "T06",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T06",
+   "round_offset": 1,
+   "shift_a": 4,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T06",
+   "round_offset": 1,
+   "shift_a": 5,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 1,
+   "shift_a": 1,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T07",
+   "round_offset": 1,
+   "shift_a": 4,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 0,
+   "shift_a": 2,
+   "shift_b": 4
+  },
+  {
+   "check_type": "X",
+   "error_type": "T08",
+   "round_offset": 1,
+   "shift_a": 4,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 0
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 0,
+   "shift_b": 1
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 1,
+   "shift_b": 2
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 3,
+   "shift_b": 5
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 4,
+   "shift_b": 3
+  },
+  {
+   "check_type": "X",
+   "error_type": "T09",
+   "round_offset": 0,
+   "shift_a": 4,
+   "shift_b": 4
+  }
+ ],
+ "check_tables_equal_round2": {
+  "0": false,
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true,
+  "5": true,
+  "6": false
+ },
+ "check_tables_by_round": {
+  "0": [
+   {
+    "error_type": "T00",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T01",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T01",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 1
+   },
+   {
+    "error_type": "T01",
+    "round_offset": 0,
+    "shift_a": 3,
+    "shift_b": 5
+   },
+   {
+    "error_type": "T02",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T02",
+    "round_offset": 0,
+    "shift_a": 1,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T02",
+    "round_offset": 0,
+    "shift_a": 5,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T03",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T03",
+    "round_offset": 0,
+    "shift_a": 2,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T04",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T04",
+    "round_offset": 0,
+    "shift_a": 3,
+    "shift_b": 2
+   },
+   {
+    "error_type": "T05",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T06",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T07",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T07",
+    "round_offset": 0,
+    "shift_a": 2,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T08",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T08",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 1
+   },
+   {
+    "error_type": "T08",
+    "round_offset": 0,
+    "shift_a": 2,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T08",
+    "round_offset": 0,
+    "shift_a": 2,
+    "shift_b": 4
+   },
+   {
+    "error_type": "T09",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T09",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 1
+   },
+   {
+    "error_type": "T09",
+    "round_offset": 0,
+    "shift_a": 1,
+    "shift_b": 2
+   },
+   {
+    "error_type": "T09",
+    "round_offset": 0,
+    "shift_a": 3,
+    "shift_b": 5
+   },
+   {
+    "error_type": "T09",
+    "round_offset": 0,
+    "shift_a": 4,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T09",
+    "round_offset": 0,
+    "shift_a": 4,
+    "shift_b": 4
+   }
+  ],
+  "6": [
+   {
+    "error_type": "T00",
+    "round_offset": 1,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T01",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T01",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 1
+   },
+   {
+    "error_type": "T01",
+    "round_offset": 0,
+    "shift_a": 3,
+    "shift_b": 5
+   },
+   {
+    "error_type": "T02",
+    "round_offset": 0,
+    "shift_a": 0,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T02",
+    "round_offset": 0,
+    "shift_a": 1,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T02",
+    "round_offset": 0,
+    "shift_a": 5,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T03",
+    "round_offset": 1,
+    "shift_a": 1,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T04",
+    "round_offset": 1,
+    "shift_a": 3,
+    "shift_b": 1
+   },
+   {
+    "error_type": "T05",
+    "round_offset": 1,
+    "shift_a": 0,
+    "shift_b": 5
+   },
+   {
+    "error_type": "T05",
+    "round_offset": 1,
+    "shift_a": 3,
+    "shift_b": 4
+   },
+   {
+    "error_type": "T06",
+    "round_offset": 1,
+    "shift_a": 4,
+    "shift_b": 3
+   },
+   {
+    "error_type": "T06",
+    "round_offset": 1,
+    "shift_a": 5,
+    "shift_b": 0
+   },
+   {
+    "error_type": "T07",
+    "round_offset": 1,
+    "shift_a": 1,
+    "shift_b": 2
+   },
+   {
+    "error_type": "T07",
+    "round_offset": 1,
+    "shift_a": 4,
+    "shift_b": 1
+   },
+   {
+    "error_type": "T08",
+    "round_offset": 1,
+    "shift_a": 4,
+    "shift_b": 2
+   }
+  ]
+ },
+ "check_degree": {
+  "max": 35,
+  "histogram_all_252": {
+   "16": 36,
+   "25": 36,
+   "35": 180
+  },
+  "by_round": {
+   "0": {
+    "degree": 25,
+    "by_offset": {
+     "0": 25
+    }
+   },
+   "1": {
+    "degree": 35,
+    "by_offset": {
+     "0": 25,
+     "1": 10
+    }
+   },
+   "2": {
+    "degree": 35,
+    "by_offset": {
+     "0": 25,
+     "1": 10
+    }
+   },
+   "3": {
+    "degree": 35,
+    "by_offset": {
+     "0": 25,
+     "1": 10
+    }
+   },
+   "4": {
+    "degree": 35,
+    "by_offset": {
+     "0": 25,
+     "1": 10
+    }
+   },
+   "5": {
+    "degree": 35,
+    "by_offset": {
+     "0": 25,
+     "1": 10
+    }
+   },
+   "6": {
+    "degree": 16,
+    "by_offset": {
+     "0": 6,
+     "1": 10
+    }
+   }
+  }
+ },
+ "error_types": [
+  {
+   "type": "T00",
+   "weight": 2,
+   "round_offsets": [
+    0,
+    1
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 0,
+     "shift_b": 0
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T01",
+   "weight": 3,
+   "round_offsets": [
+    0
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 1
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 3,
+     "shift_b": 5
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36,
+    "6": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T02",
+   "weight": 3,
+   "round_offsets": [
+    0
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 1,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 5,
+     "shift_b": 3
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36,
+    "6": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T03",
+   "weight": 3,
+   "round_offsets": [
+    0,
+    1
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 2,
+     "shift_b": 3
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 1,
+     "shift_b": 3
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T04",
+   "weight": 3,
+   "round_offsets": [
+    0,
+    1
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 3,
+     "shift_b": 2
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 3,
+     "shift_b": 1
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T05",
+   "weight": 3,
+   "round_offsets": [
+    0,
+    1
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 0,
+     "shift_b": 5
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 3,
+     "shift_b": 4
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T06",
+   "weight": 3,
+   "round_offsets": [
+    0,
+    1
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 4,
+     "shift_b": 3
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 5,
+     "shift_b": 0
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T07",
+   "weight": 4,
+   "round_offsets": [
+    0,
+    1
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 2,
+     "shift_b": 3
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 1,
+     "shift_b": 2
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 4,
+     "shift_b": 1
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T08",
+   "weight": 5,
+   "round_offsets": [
+    0,
+    1
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 1
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 2,
+     "shift_b": 3
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 2,
+     "shift_b": 4
+    },
+    {
+     "round_offset": 1,
+     "shift_a": 4,
+     "shift_b": 2
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  },
+  {
+   "type": "T09",
+   "weight": 6,
+   "round_offsets": [
+    0
+   ],
+   "edges": [
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 0
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 0,
+     "shift_b": 1
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 1,
+     "shift_b": 2
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 3,
+     "shift_b": 5
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 4,
+     "shift_b": 3
+    },
+    {
+     "round_offset": 0,
+     "shift_a": 4,
+     "shift_b": 4
+    }
+   ],
+   "home_rounds": {
+    "0": 36,
+    "1": 36,
+    "2": 36,
+    "3": 36,
+    "4": 36,
+    "5": 36
+   },
+   "in_bulk_template": true
+  }
+ ],
+ "rotator": {
+  "n_shifts_bulk": 18,
+  "shifts_bulk": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    5
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    5,
+    3
+   ]
+  ],
+  "n_shifts_all": 18,
+  "shifts_all": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    5
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    5,
+    3
+   ]
+  ]
+ },
+ "boundary": {
+  "classes": {
+   "0": [
+    {
+     "type": "T00",
+     "cls": "a"
+    },
+    {
+     "type": "T01",
+     "cls": "a"
+    },
+    {
+     "type": "T02",
+     "cls": "a"
+    },
+    {
+     "type": "T03",
+     "cls": "a"
+    },
+    {
+     "type": "T04",
+     "cls": "a"
+    },
+    {
+     "type": "T05",
+     "cls": "a"
+    },
+    {
+     "type": "T06",
+     "cls": "a"
+    },
+    {
+     "type": "T07",
+     "cls": "a"
+    },
+    {
+     "type": "T08",
+     "cls": "a"
+    },
+    {
+     "type": "T09",
+     "cls": "a"
+    }
+   ],
+   "1": [
+    {
+     "type": "T00",
+     "cls": "a"
+    },
+    {
+     "type": "T01",
+     "cls": "a"
+    },
+    {
+     "type": "T02",
+     "cls": "a"
+    },
+    {
+     "type": "T03",
+     "cls": "a"
+    },
+    {
+     "type": "T04",
+     "cls": "a"
+    },
+    {
+     "type": "T05",
+     "cls": "a"
+    },
+    {
+     "type": "T06",
+     "cls": "a"
+    },
+    {
+     "type": "T07",
+     "cls": "a"
+    },
+    {
+     "type": "T08",
+     "cls": "a"
+    },
+    {
+     "type": "T09",
+     "cls": "a"
+    }
+   ],
+   "2": [
+    {
+     "type": "T00",
+     "cls": "a"
+    },
+    {
+     "type": "T01",
+     "cls": "a"
+    },
+    {
+     "type": "T02",
+     "cls": "a"
+    },
+    {
+     "type": "T03",
+     "cls": "a"
+    },
+    {
+     "type": "T04",
+     "cls": "a"
+    },
+    {
+     "type": "T05",
+     "cls": "a"
+    },
+    {
+     "type": "T06",
+     "cls": "a"
+    },
+    {
+     "type": "T07",
+     "cls": "a"
+    },
+    {
+     "type": "T08",
+     "cls": "a"
+    },
+    {
+     "type": "T09",
+     "cls": "a"
+    }
+   ],
+   "3": [
+    {
+     "type": "T00",
+     "cls": "a"
+    },
+    {
+     "type": "T01",
+     "cls": "a"
+    },
+    {
+     "type": "T02",
+     "cls": "a"
+    },
+    {
+     "type": "T03",
+     "cls": "a"
+    },
+    {
+     "type": "T04",
+     "cls": "a"
+    },
+    {
+     "type": "T05",
+     "cls": "a"
+    },
+    {
+     "type": "T06",
+     "cls": "a"
+    },
+    {
+     "type": "T07",
+     "cls": "a"
+    },
+    {
+     "type": "T08",
+     "cls": "a"
+    },
+    {
+     "type": "T09",
+     "cls": "a"
+    }
+   ],
+   "4": [
+    {
+     "type": "T00",
+     "cls": "a"
+    },
+    {
+     "type": "T01",
+     "cls": "a"
+    },
+    {
+     "type": "T02",
+     "cls": "a"
+    },
+    {
+     "type": "T03",
+     "cls": "a"
+    },
+    {
+     "type": "T04",
+     "cls": "a"
+    },
+    {
+     "type": "T05",
+     "cls": "a"
+    },
+    {
+     "type": "T06",
+     "cls": "a"
+    },
+    {
+     "type": "T07",
+     "cls": "a"
+    },
+    {
+     "type": "T08",
+     "cls": "a"
+    },
+    {
+     "type": "T09",
+     "cls": "a"
+    }
+   ],
+   "5": [
+    {
+     "type": "T00",
+     "cls": "a"
+    },
+    {
+     "type": "T01",
+     "cls": "a"
+    },
+    {
+     "type": "T02",
+     "cls": "a"
+    },
+    {
+     "type": "T03",
+     "cls": "a"
+    },
+    {
+     "type": "T04",
+     "cls": "a"
+    },
+    {
+     "type": "T05",
+     "cls": "a"
+    },
+    {
+     "type": "T06",
+     "cls": "a"
+    },
+    {
+     "type": "T07",
+     "cls": "a"
+    },
+    {
+     "type": "T08",
+     "cls": "a"
+    },
+    {
+     "type": "T09",
+     "cls": "a"
+    }
+   ],
+   "6": [
+    {
+     "type": "T01",
+     "cls": "a"
+    },
+    {
+     "type": "T02",
+     "cls": "a"
+    }
+   ]
+  },
+  "slot_conflicts": 0,
+  "engine_slots_used_per_round": {
+   "0": {
+    "used": 10,
+    "of": 10
+   },
+   "1": {
+    "used": 10,
+    "of": 10
+   },
+   "2": {
+    "used": 10,
+    "of": 10
+   },
+   "3": {
+    "used": 10,
+    "of": 10
+   },
+   "4": {
+    "used": 10,
+    "of": 10
+   },
+   "5": {
+    "used": 10,
+    "of": 10
+   },
+   "6": {
+    "used": 2,
+    "of": 10
+   }
+  }
+ },
+ "reconstruction": {
+  "exact": true,
+  "columns_rec": 2232,
+  "columns_xdec": 2232,
+  "nnz_rec": 7776,
+  "nnz_xdec": 7776,
+  "mismatched_columns": 0,
+  "out_of_range_edges": 0
+ },
+ "memory": {
+  "w4_prior=w": {
+   "message_bits": 4,
+   "marginal_bits": 7,
+   "prior_bits": 4,
+   "per_round": {
+    "0": {
+     "error_types": 10,
+     "edges": 900,
+     "error_state_bits": 6480,
+     "message_bits": 3600,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "1": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 6480,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "2": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 6480,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "3": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 6480,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "4": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 6480,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "5": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 6480,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "6": {
+     "error_types": 2,
+     "edges": 576,
+     "error_state_bits": 1296,
+     "message_bits": 2304,
+     "error_state_bram": 1,
+     "message_bram": 1
+    }
+   },
+   "all_rounds": {
+    "error_state_bits": 40176,
+    "message_bits": 31104,
+    "error_state_bram": 2,
+    "message_bram": 1
+   },
+   "bulk_round": {
+    "error_types": 10,
+    "edges": 1260,
+    "error_state_bits": 6480,
+    "message_bits": 5040
+   }
+  },
+  "w4_prior=w+3": {
+   "message_bits": 4,
+   "marginal_bits": 7,
+   "prior_bits": 7,
+   "per_round": {
+    "0": {
+     "error_types": 10,
+     "edges": 900,
+     "error_state_bits": 7560,
+     "message_bits": 3600,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "1": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 7560,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "2": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 7560,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "3": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 7560,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "4": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 7560,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "5": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 7560,
+     "message_bits": 5040,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "6": {
+     "error_types": 2,
+     "edges": 576,
+     "error_state_bits": 1512,
+     "message_bits": 2304,
+     "error_state_bram": 1,
+     "message_bram": 1
+    }
+   },
+   "all_rounds": {
+    "error_state_bits": 46872,
+    "message_bits": 31104,
+    "error_state_bram": 2,
+    "message_bram": 1
+   },
+   "bulk_round": {
+    "error_types": 10,
+    "edges": 1260,
+    "error_state_bits": 7560,
+    "message_bits": 5040
+   }
+  },
+  "w6_prior=w": {
+   "message_bits": 6,
+   "marginal_bits": 9,
+   "prior_bits": 6,
+   "per_round": {
+    "0": {
+     "error_types": 10,
+     "edges": 900,
+     "error_state_bits": 8640,
+     "message_bits": 5400,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "1": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 8640,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "2": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 8640,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "3": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 8640,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "4": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 8640,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "5": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 8640,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "6": {
+     "error_types": 2,
+     "edges": 576,
+     "error_state_bits": 1728,
+     "message_bits": 3456,
+     "error_state_bram": 1,
+     "message_bram": 1
+    }
+   },
+   "all_rounds": {
+    "error_state_bits": 53568,
+    "message_bits": 46656,
+    "error_state_bram": 2,
+    "message_bram": 2
+   },
+   "bulk_round": {
+    "error_types": 10,
+    "edges": 1260,
+    "error_state_bits": 8640,
+    "message_bits": 7560
+   }
+  },
+  "w6_prior=w+3": {
+   "message_bits": 6,
+   "marginal_bits": 9,
+   "prior_bits": 9,
+   "per_round": {
+    "0": {
+     "error_types": 10,
+     "edges": 900,
+     "error_state_bits": 9720,
+     "message_bits": 5400,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "1": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 9720,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "2": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 9720,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "3": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 9720,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "4": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 9720,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "5": {
+     "error_types": 10,
+     "edges": 1260,
+     "error_state_bits": 9720,
+     "message_bits": 7560,
+     "error_state_bram": 1,
+     "message_bram": 1
+    },
+    "6": {
+     "error_types": 2,
+     "edges": 576,
+     "error_state_bits": 1944,
+     "message_bits": 3456,
+     "error_state_bram": 1,
+     "message_bram": 1
+    }
+   },
+   "all_rounds": {
+    "error_state_bits": 60264,
+    "message_bits": 46656,
+    "error_state_bram": 2,
+    "message_bram": 2
+   },
+   "bulk_round": {
+    "error_types": 10,
+    "edges": 1260,
+    "error_state_bits": 9720,
+    "message_bits": 7560
+   }
+  }
+ },
+ "seconds": 0.4
+}

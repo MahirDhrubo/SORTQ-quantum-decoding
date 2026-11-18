@@ -1,0 +1,212 @@
+{
+ "circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=12,error_rate=0.003,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim": {
+  "rounds_in_name": 12,
+  "detectors": 1728,
+  "observables": 12,
+  "dem_errors": 67752,
+  "z_detectors": 936,
+  "final_round_index": 12,
+  "z_detectors_eq_72_R_plus_1": true,
+  "noiseless_all_zero": true,
+  "xdec_shape": [
+   936,
+   8784
+  ],
+  "xdec_nnz": 30672,
+  "reconstruction": "exact",
+  "columns_of_unknown_type": 0,
+  "bulk_rounds": "1..11",
+  "bulk_rounds_contiguous": true,
+  "round0_types": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08"
+  ],
+  "final_round_types": [
+   "T01",
+   "T03",
+   "T09"
+  ]
+ },
+ "circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=24,error_rate=0.003,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim": {
+  "rounds_in_name": 24,
+  "detectors": 3456,
+  "observables": 12,
+  "dem_errors": 138600,
+  "z_detectors": 1800,
+  "final_round_index": 24,
+  "z_detectors_eq_72_R_plus_1": true,
+  "noiseless_all_zero": true,
+  "xdec_shape": [
+   1800,
+   17424
+  ],
+  "xdec_nnz": 60912,
+  "reconstruction": "exact",
+  "columns_of_unknown_type": 0,
+  "bulk_rounds": "1..23",
+  "bulk_rounds_contiguous": true,
+  "round0_types": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08"
+  ],
+  "final_round_types": [
+   "T01",
+   "T03",
+   "T09"
+  ]
+ },
+ "circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=36,error_rate=0.003,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim": {
+  "rounds_in_name": 36,
+  "detectors": 5184,
+  "observables": 12,
+  "dem_errors": 209448,
+  "z_detectors": 2664,
+  "final_round_index": 36,
+  "z_detectors_eq_72_R_plus_1": true,
+  "noiseless_all_zero": true,
+  "xdec_shape": [
+   2664,
+   26064
+  ],
+  "xdec_nnz": 91152,
+  "reconstruction": "exact",
+  "columns_of_unknown_type": 0,
+  "bulk_rounds": "1..35",
+  "bulk_rounds_contiguous": true,
+  "round0_types": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08"
+  ],
+  "final_round_types": [
+   "T01",
+   "T03",
+   "T09"
+  ]
+ },
+ "circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=12,error_rate=0.002,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim": {
+  "rounds_in_name": 12,
+  "detectors": 1728,
+  "observables": 12,
+  "dem_errors": 67752,
+  "z_detectors": 936,
+  "final_round_index": 12,
+  "z_detectors_eq_72_R_plus_1": true,
+  "noiseless_all_zero": true,
+  "xdec_shape": [
+   936,
+   8784
+  ],
+  "xdec_nnz": 30672,
+  "reconstruction": "exact",
+  "columns_of_unknown_type": 0,
+  "bulk_rounds": "1..11",
+  "bulk_rounds_contiguous": true,
+  "round0_types": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08"
+  ],
+  "final_round_types": [
+   "T01",
+   "T03",
+   "T09"
+  ]
+ },
+ "circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=24,error_rate=0.002,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim": {
+  "rounds_in_name": 24,
+  "detectors": 3456,
+  "observables": 12,
+  "dem_errors": 138600,
+  "z_detectors": 1800,
+  "final_round_index": 24,
+  "z_detectors_eq_72_R_plus_1": true,
+  "noiseless_all_zero": true,
+  "xdec_shape": [
+   1800,
+   17424
+  ],
+  "xdec_nnz": 60912,
+  "reconstruction": "exact",
+  "columns_of_unknown_type": 0,
+  "bulk_rounds": "1..23",
+  "bulk_rounds_contiguous": true,
+  "round0_types": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08"
+  ],
+  "final_round_types": [
+   "T01",
+   "T03",
+   "T09"
+  ]
+ },
+ "circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=36,error_rate=0.002,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim": {
+  "rounds_in_name": 36,
+  "detectors": 5184,
+  "observables": 12,
+  "dem_errors": 209448,
+  "z_detectors": 2664,
+  "final_round_index": 36,
+  "z_detectors_eq_72_R_plus_1": true,
+  "noiseless_all_zero": true,
+  "xdec_shape": [
+   2664,
+   26064
+  ],
+  "xdec_nnz": 91152,
+  "reconstruction": "exact",
+  "columns_of_unknown_type": 0,
+  "bulk_rounds": "1..35",
+  "bulk_rounds_contiguous": true,
+  "round0_types": [
+   "T00",
+   "T01",
+   "T02",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T07",
+   "T08"
+  ],
+  "final_round_types": [
+   "T01",
+   "T03",
+   "T09"
+  ]
+ }
+}

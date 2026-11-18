@@ -1,0 +1,135 @@
+{
+ "p0.003": {
+  "shots": 100000,
+  "layers": {
+   "k1": 7,
+   "k2": 4,
+   "k3": 3,
+   "k4": 2,
+   "flood": 1
+  },
+  "ler": {
+   "k1": {
+    "fails": 1566,
+    "ler": 0.01566,
+    "hit_cap": 0,
+    "not_converged": 0
+   },
+   "k2": {
+    "fails": 1551,
+    "ler": 0.01551,
+    "hit_cap": 0,
+    "not_converged": 0
+   },
+   "k3": {
+    "fails": 1547,
+    "ler": 0.01547,
+    "hit_cap": 0,
+    "not_converged": 0
+   },
+   "k4": {
+    "fails": 1534,
+    "ler": 0.01534,
+    "hit_cap": 0,
+    "not_converged": 0
+   },
+   "flood": {
+    "fails": 1565,
+    "ler": 0.01565,
+    "hit_cap": 0,
+    "not_converged": 0
+   }
+  },
+  "paired_vs_k1": {
+   "k2": {
+    "both": 1108,
+    "only_k1": 458,
+    "only_other": 443,
+    "mcnemar_p": 0.640947962135797
+   },
+   "k3": {
+    "both": 1092,
+    "only_k1": 474,
+    "only_other": 455,
+    "mcnemar_p": 0.5548378850514153
+   },
+   "k4": {
+    "both": 1078,
+    "only_k1": 488,
+    "only_other": 456,
+    "mcnemar_p": 0.3129911599691637
+   },
+   "flood": {
+    "both": 1101,
+    "only_k1": 465,
+    "only_other": 464,
+    "mcnemar_p": 1.0
+   }
+  },
+  "iterations": {
+   "k1": {
+    "mean": 8.54041,
+    "p50": 5.0,
+    "p90": 15.0,
+    "p99": 67.0,
+    "p99_9": 243.0,
+    "max": 1216
+   },
+   "k2": {
+    "mean": 9.77699,
+    "p50": 6.0,
+    "p90": 16.0,
+    "p99": 90.0,
+    "p99_9": 296.0,
+    "max": 3001
+   },
+   "k3": {
+    "mean": 10.55334,
+    "p50": 7.0,
+    "p90": 17.0,
+    "p99": 95.0,
+    "p99_9": 305.0,
+    "max": 2053
+   },
+   "k4": {
+    "mean": 10.90338,
+    "p50": 7.0,
+    "p90": 18.0,
+    "p99": 96.0,
+    "p99_9": 319.00100000000384,
+    "max": 2579
+   },
+   "flood": {
+    "mean": 11.64103,
+    "p50": 7.0,
+    "p90": 18.0,
+    "p99": 99.0,
+    "p99_9": 360.0,
+    "max": 3006
+   }
+  },
+  "cpu_s_per_shot": {
+   "k1": 0.0011307144260406495,
+   "k2": 0.0010436187791824341,
+   "k3": 0.0010502278518676757,
+   "k4": 0.0010139474415779115,
+   "flood": 0.0010267139840126037
+  },
+  "vs_test1b": {
+   "k1": {
+    "shots_compared": 100000,
+    "test1b_trace": "p0.003_int4.2.8_sweep.npz",
+    "iterations_differ": 96484,
+    "logical_fail_differ": 1640,
+    "success_differ": 7
+   },
+   "flood": {
+    "shots_compared": 100000,
+    "test1b_trace": "p0.003_int4.2.8_flood.npz",
+    "iterations_differ": 97039,
+    "logical_fail_differ": 1634,
+    "success_differ": 13
+   }
+  }
+ }
+}

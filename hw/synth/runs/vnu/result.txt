@@ -1,0 +1,13 @@
+run vnu
+period 2.5
+wns -2.617
+start ich_reg[37]/C
+end dut/g_reg.v2c_mag_reg[5][3]/D
+logic_levels 24
+datapath_delay 5.098
+logic_delay 2.089
+net_delay 3.009
+route_status 0
+t_synth_s 27
+t_opt_place_s 238
+t_route_s 101

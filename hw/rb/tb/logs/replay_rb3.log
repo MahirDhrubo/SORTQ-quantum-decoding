@@ -1,0 +1,7 @@
+tb_round_step_rb: steps 2756 (init 52, first 39), c2v edges 6945120, error updates 3144384
+mismatches: steps 0, c2v 0, bias 0, VNU 0
+PASS
+- tb_round_step_rb.sv:131: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.054 2026-11-01
+- Verilator: $finish at 29us; walltime 3.155 s; speed 9.178 us/s
+- Verilator: cpu 3.113 s on 1 threads; allocated 14 MB

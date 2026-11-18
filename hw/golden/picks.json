@@ -1,0 +1,20 @@
+{
+ "picks": [
+  96,
+  106,
+  53
+ ],
+ "iterations": [
+  97,
+  126,
+  580
+ ],
+ "success": [
+  true,
+  true,
+  true
+ ],
+ "n_shots": 2000,
+ "n_leg1_fails": 70,
+ "rule": "first K-1 shots converging in leg 2 (80 < it <= 140) + first shot needing more than 2 legs"
+}

@@ -1,0 +1,3 @@
+pf_adv_p2 (tb_round_step_pf): FAIL -> caught
+pf_prev_rd (tb_round_step_pf): FAIL -> caught
+pf_sm (tb_round_step_pf): PASS -> NOT CAUGHT

@@ -1,0 +1,13 @@
+{
+ "set": "p0.002_seed20261111",
+ "trace": "../results/test1g/p0.002_rb13.npz",
+ "shots": 600000,
+ "redecoded": 2226,
+ "total_draws": 121279,
+ "wraps_of_period": 1.8505989166094454,
+ "fails_lfsr": 17,
+ "fails_prng": 22,
+ "mean_it_lfsr": 9.827518333333334,
+ "mean_it_prng": 9.854968333333334,
+ "seconds": 361.4
+}

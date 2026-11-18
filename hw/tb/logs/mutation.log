@@ -1,0 +1,16 @@
+cnu_min2 (tb_cnu): FAIL -> caught
+cnu_parity (tb_cnu): FAIL -> caught
+cnu_mask (tb_cnu): FAIL -> caught
+vnu_round (tb_vnu): FAIL -> caught
+vnu_gate (tb_vnu): FAIL -> caught
+vnu_hard (tb_vnu): FAIL -> caught
+vnu_margsat (tb_vnu): FAIL -> caught
+rot_dir (tb_rot2d): FAIL -> caught
+wiring_edge (tb_round_wiring): FAIL -> caught
+conv_mask (tb_conv_check): FAIL -> caught
+commit_rom (tb_commit): FAIL -> caught
+commit_tp (tb_commit): FAIL -> caught
+commit_carry (tb_commit): FAIL -> caught
+ctrl_wend (tb_ctrl): FAIL -> caught
+gamma_thr (tb_gamma_src): FAIL -> caught
+smem_wrap (tb_state_mem): FAIL -> caught

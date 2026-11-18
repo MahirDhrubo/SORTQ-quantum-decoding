@@ -1,0 +1,119 @@
+{
+ "rows": [
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 12.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 1517.0,
+   "binding": "utilization < 0.7",
+   "per_round_ns": 116.6923076923077,
+   "util": 0.6997190129916666,
+   "lat_p999_us": 2500.711110000018,
+   "queue_max": 322
+  },
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 12.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 443.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 34.07692307692308,
+   "util": 0.2161341613416667,
+   "lat_p999_us": 99.82900500000082,
+   "queue_max": 91
+  },
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 12.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 998.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 76.76923076923077,
+   "util": 0.4660313612166666,
+   "lat_p999_us": 997.3560800000131,
+   "queue_max": 205
+  },
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 12.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 2164.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 166.46153846153845,
+   "util": 0.9910406135666667,
+   "lat_p999_us": 9847.460036000006,
+   "queue_max": 976
+  },
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 8.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 999.0,
+   "binding": "utilization < 0.7",
+   "per_round_ns": 76.84615384615384,
+   "util": 0.6997224396625,
+   "lat_p999_us": 1640.897,
+   "queue_max": 317
+  },
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 8.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 333.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 25.615384615384617,
+   "util": 0.24990747988749998,
+   "lat_p999_us": 99.66501200000197,
+   "queue_max": 102
+  },
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 8.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 783.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 60.23076923076923,
+   "util": 0.5538365067625,
+   "lat_p999_us": 999.1130090000015,
+   "queue_max": 241
+  },
+  {
+   "trace": "1g int4.2.8 rb13",
+   "p": "0.001",
+   "T_us": 8.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 1437.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 110.53846153846153,
+   "util": 0.9955466924874999,
+   "lat_p999_us": 9956.288,
+   "queue_max": 1328
+  }
+ ],
+ "criteria": {
+  "a": "util < 0.7 and queue max < 1000",
+  "b": "p99.9 < 100 us",
+  "c": "p99.9 < 1 ms",
+  "d": "p99.9 < 10 ms"
+ },
+ "K": 18080,
+ "overhead_ns": 200.0,
+ "jobs": 10000000,
+ "seed": 20261112,
+ "seconds": 23.244946241378784
+}

@@ -1,0 +1,119 @@
+{
+ "rows": [
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 230.0,
+   "binding": "queue max",
+   "per_round_ns": 17.692307692307693,
+   "util": 0.5270308304166667,
+   "lat_p999_us": 7463.1803800000625,
+   "queue_max": 999
+  },
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 8.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 0.6153846153846154,
+   "util": 0.03441846366666667,
+   "lat_p999_us": 87.92,
+   "queue_max": 22
+  },
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 57.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 4.384615384615385,
+   "util": 0.14314822029166668,
+   "lat_p999_us": 990.628,
+   "queue_max": 207
+  },
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 266.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 20.46153846153846,
+   "util": 0.6069139169166666,
+   "lat_p999_us": 9985.77625000004,
+   "queue_max": 1164
+  },
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.002",
+   "T_us": 12.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 364.0,
+   "binding": "queue max",
+   "per_round_ns": 28.0,
+   "util": 0.3291664573,
+   "lat_p999_us": 6374.712,
+   "queue_max": 996
+  },
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.002",
+   "T_us": 12.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 24.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 1.8461538461538463,
+   "util": 0.037271048466666665,
+   "lat_p999_us": 87.34402400000394,
+   "queue_max": 36
+  },
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.002",
+   "T_us": 12.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 78.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 6.0,
+   "util": 0.08363090751666667,
+   "lat_p999_us": 999.736,
+   "queue_max": 131
+  },
+  {
+   "trace": "1h rb13_int4_i0.15_0.5",
+   "p": "0.002",
+   "T_us": 12.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 527.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 40.53846153846154,
+   "util": 0.46910455035833337,
+   "lat_p999_us": 9992.199005,
+   "queue_max": 1526
+  }
+ ],
+ "criteria": {
+  "a": "util < 0.7 and queue max < 1000",
+  "b": "p99.9 < 100 us",
+  "c": "p99.9 < 1 ms",
+  "d": "p99.9 < 10 ms"
+ },
+ "K": 18080,
+ "overhead_ns": 200.0,
+ "jobs": 10000000,
+ "seed": 20261112,
+ "seconds": 14.146597623825073
+}

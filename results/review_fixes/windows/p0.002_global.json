@@ -1,0 +1,17 @@
+{
+ "tag": "p0.002",
+ "setting": "global",
+ "chunks": 10,
+ "shots": 250000,
+ "fails": 34,
+ "ler": 0.000136,
+ "ler_per_round": 3.7782773733008312e-06,
+ "rounds": 36,
+ "windows": 1,
+ "window_layers": [
+  37
+ ],
+ "windows_not_converged": 9,
+ "syndrome_mismatch_in_fully_converged": 0,
+ "seconds": 5701.951974868774
+}

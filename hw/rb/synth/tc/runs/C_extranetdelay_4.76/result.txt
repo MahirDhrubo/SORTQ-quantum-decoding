@@ -1,0 +1,17 @@
+period 4.76
+place_directive ExtraNetDelay_high
+wns -0.014
+wns_after_place 0.422
+wns_after_place_physopt 0.422
+wns_after_route -0.039
+start dut/u_rs/g_cnu[11].g_grp[1].u_c/g_reg.parity_reg/C
+end dut/u_rs/g_cnu[11].u_m/g_reg.out_sign_reg[0]/D
+logic_levels 1
+datapath_delay 4.755
+logic_delay 0.116
+net_delay 4.639
+route_status 0
+t_opt_place_s 3359
+t_physopt_s 52
+t_route_s 3345
+t_postroute_physopt_s 616

@@ -1,0 +1,19 @@
+{
+ "set": "2a_golden_seed20261113",
+ "shots": 2000,
+ "segments": [
+  {
+   "seed": 20261113,
+   "calls": 1,
+   "call_size": 2000
+  }
+ ],
+ "circuit": "circuits/bb_ibm/circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=12,error_rate=0.003,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim",
+ "circuit_sha256": "28c2a6d5d502594870d8f2607f213aae6dec8766c4dfaec093a2dc7f6cffa662",
+ "stim_version": "1.16.0",
+ "num_detectors": 1728,
+ "num_observables": 12,
+ "bitorder": "little",
+ "seconds": 0.0,
+ "file_sha256": "fa056c933167fb9d037fe8daac94bafe419d9502b85dd350accf82cb5a96149b"
+}

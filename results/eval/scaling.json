@@ -1,0 +1,642 @@
+{
+ "rb_reference": {
+  "run": "tc/A_explore_4.76",
+  "hier": "hw/rb/synth/tc/runs/A_explore_4.76/util_route_hier.rpt",
+  "lut": 520369,
+  "ff": 140289,
+  "lutram": 37868,
+  "mhz": 210.1,
+  "cycles_iter": 13,
+  "ns_iter": 61.88
+ },
+ "rb_hierarchy": {
+  "glue": {
+   "lut": 80,
+   "lutram": 0,
+   "ff": 21536
+  },
+  "memories": {
+   "lut": 62723,
+   "lutram": 37868,
+   "ff": 0
+  },
+  "gamma_lanes": {
+   "lut": 46815,
+   "lutram": 0,
+   "ff": 14400
+  },
+  "commit": {
+   "lut": 5288,
+   "lutram": 0,
+   "ff": 180
+  },
+  "conv_check": {
+   "lut": 22609,
+   "lutram": 0,
+   "ff": 1125
+  },
+  "ctrl": {
+   "lut": 711,
+   "lutram": 0,
+   "ff": 225
+  },
+  "round_step": {
+   "lut": 382174,
+   "lutram": 0,
+   "ff": 102823
+  }
+ },
+ "rb_hierarchy_lut_sum": 520400,
+ "calibration": 0.9999404304381245,
+ "budget_lut": 3268608.0,
+ "codes": {
+  "72_12_6": {
+   "name": "[[72,12,6]]",
+   "basis": {
+    "X": {
+     "counts": {
+      "NPOS": 36,
+      "NT": 10,
+      "NHP": 7,
+      "NE0": 22,
+      "NE1": 13,
+      "NBASE": 35,
+      "NOBS": 12,
+      "W": 7,
+      "R": 7,
+      "o0_two_round": 10,
+      "o1": 13,
+      "rb_bits_per_home": 16560
+     },
+     "scale": {
+      "round_step": 0.5,
+      "memories": 0.5,
+      "gamma_lanes": 0.5,
+      "conv_check": 0.2692307692307692,
+      "commit": 0.5,
+      "ctrl": 1.0,
+      "glue": 1.0
+     },
+     "rb_lut": 255362.8257036747,
+     "rb_lut_parts": {
+      "glue": 79.99523443504997,
+      "memories": 31359.63180918524,
+      "gamma_lanes": 23406.1056254804,
+      "commit": 2643.842498078401,
+      "conv_check": 6086.675859324188,
+      "ctrl": 710.9576460415066,
+      "round_step": 191075.6170311299
+     },
+     "rb_lut_pct": 6.250069159805634,
+     "rb_ff": 80765.38461538462,
+     "rb_lutram": 18934.0,
+     "rb_measured": false,
+     "rb_cycles": {
+      "rounds": 7,
+      "order": [
+       0,
+       2,
+       4,
+       6,
+       1,
+       3,
+       5
+      ],
+      "hazard_distance_no_bubbles": 3,
+      "cycles_per_iteration": 11,
+      "bubbles": 4,
+      "issue_cycles": [
+       0,
+       1,
+       2,
+       3,
+       6,
+       7,
+       8
+      ]
+     },
+     "rb_ns_iter_at_ref_clock": 52.35602094240838,
+     "sweep_lut": 200935.68162865017,
+     "sweep_W": 6,
+     "fully_parallel_lut": 689400.0,
+     "ratio_fp_over_rb": 2.699688171527307,
+     "ratio_fp_over_sweep": 3.4309486220276306
+    },
+    "Z": {
+     "counts": {
+      "NPOS": 36,
+      "NT": 10,
+      "NHP": 7,
+      "NE0": 25,
+      "NE1": 10,
+      "NBASE": 35,
+      "NOBS": 12,
+      "W": 7,
+      "R": 7,
+      "o0_two_round": 13,
+      "o1": 10,
+      "rb_bits_per_home": 16560
+     },
+     "scale": {
+      "round_step": 0.5,
+      "memories": 0.5,
+      "gamma_lanes": 0.5,
+      "conv_check": 0.2692307692307692,
+      "commit": 0.5,
+      "ctrl": 1.0,
+      "glue": 1.0
+     },
+     "rb_lut": 255362.8257036747,
+     "rb_lut_parts": {
+      "glue": 79.99523443504997,
+      "memories": 31359.63180918524,
+      "gamma_lanes": 23406.1056254804,
+      "commit": 2643.842498078401,
+      "conv_check": 6086.675859324188,
+      "ctrl": 710.9576460415066,
+      "round_step": 191075.6170311299
+     },
+     "rb_lut_pct": 6.250069159805634,
+     "rb_ff": 80765.38461538462,
+     "rb_lutram": 18934.0,
+     "rb_measured": false,
+     "rb_cycles": {
+      "rounds": 7,
+      "order": [
+       0,
+       2,
+       4,
+       6,
+       1,
+       3,
+       5
+      ],
+      "hazard_distance_no_bubbles": 3,
+      "cycles_per_iteration": 11,
+      "bubbles": 4,
+      "issue_cycles": [
+       0,
+       1,
+       2,
+       3,
+       6,
+       7,
+       8
+      ]
+     },
+     "rb_ns_iter_at_ref_clock": 52.35602094240838,
+     "sweep_lut": 200935.68162865017,
+     "sweep_W": 6,
+     "fully_parallel_lut": 689400.0,
+     "ratio_fp_over_rb": 2.699688171527307,
+     "ratio_fp_over_sweep": 3.4309486220276306
+    }
+   },
+   "rb": {
+    "block_lut": 510725.6514073494,
+    "block_pct": 12.500138319611269,
+    "blocks_fractional": 6.3999291811426815,
+    "blocks": 6,
+    "logical_qubits": 72,
+    "at_blocks": {
+     "ff": 969184.6153846155,
+     "ff_pct": 11.86051818247542,
+     "lutram": 227208.0,
+     "lutram_pct": 23.76255020080321
+    }
+   },
+   "sweep": {
+    "block_lut": 401871.36325730034,
+    "block_pct": 9.83590233536234,
+    "blocks_fractional": 8.133468315599426,
+    "blocks": 8,
+    "logical_qubits": 96
+   },
+   "fully_parallel": {
+    "block_lut": 1378800.0,
+    "block_pct": 33.746475563909776,
+    "blocks_fractional": 2.370617928633594,
+    "blocks": 2,
+    "logical_qubits": 24
+   }
+  },
+  "144_12_12": {
+   "name": "[[144,12,12]]",
+   "basis": {
+    "X": {
+     "counts": {
+      "NPOS": 72,
+      "NT": 10,
+      "NHP": 7,
+      "NE0": 22,
+      "NE1": 13,
+      "NBASE": 35,
+      "NOBS": 12,
+      "W": 13,
+      "R": 13,
+      "o0_two_round": 10,
+      "o1": 13,
+      "rb_bits_per_home": 33120
+     },
+     "scale": {
+      "round_step": 1.0,
+      "memories": 1.0,
+      "gamma_lanes": 1.0,
+      "conv_check": 1.0,
+      "commit": 1.0,
+      "ctrl": 1.0,
+      "glue": 1.0
+     },
+     "rb_lut": 520369.0,
+     "rb_lut_parts": {
+      "glue": 79.99523443504997,
+      "memories": 62719.26361837048,
+      "gamma_lanes": 46812.2112509608,
+      "commit": 5287.684996156802,
+      "conv_check": 22607.653191775556,
+      "ctrl": 710.9576460415066,
+      "round_step": 382151.2340622598
+     },
+     "rb_lut_pct": 12.73616169329574,
+     "rb_ff": 140289.0,
+     "rb_lutram": 37868.0,
+     "rb_measured": true,
+     "rb_cycles": {
+      "rounds": 13,
+      "order": [
+       0,
+       2,
+       4,
+       6,
+       8,
+       10,
+       12,
+       1,
+       3,
+       5,
+       7,
+       9,
+       11
+      ],
+      "hazard_distance_no_bubbles": 6,
+      "cycles_per_iteration": 13,
+      "bubbles": 0,
+      "issue_cycles": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12
+      ]
+     },
+     "rb_ns_iter_at_ref_clock": 61.87529747739172,
+     "sweep_lut": 448213.0,
+     "sweep_W": 12,
+     "fully_parallel_lut": 2722752.0,
+     "ratio_fp_over_rb": 5.232348583409081,
+     "ratio_fp_over_sweep": 6.07468324211926
+    },
+    "Z": {
+     "counts": {
+      "NPOS": 72,
+      "NT": 10,
+      "NHP": 7,
+      "NE0": 25,
+      "NE1": 10,
+      "NBASE": 35,
+      "NOBS": 12,
+      "W": 13,
+      "R": 13,
+      "o0_two_round": 13,
+      "o1": 10,
+      "rb_bits_per_home": 33120
+     },
+     "scale": {
+      "round_step": 1.0,
+      "memories": 1.0,
+      "gamma_lanes": 1.0,
+      "conv_check": 1.0,
+      "commit": 1.0,
+      "ctrl": 1.0,
+      "glue": 1.0
+     },
+     "rb_lut": 520369.0,
+     "rb_lut_parts": {
+      "glue": 79.99523443504997,
+      "memories": 62719.26361837048,
+      "gamma_lanes": 46812.2112509608,
+      "commit": 5287.684996156802,
+      "conv_check": 22607.653191775556,
+      "ctrl": 710.9576460415066,
+      "round_step": 382151.2340622598
+     },
+     "rb_lut_pct": 12.73616169329574,
+     "rb_ff": 140289.0,
+     "rb_lutram": 37868.0,
+     "rb_measured": false,
+     "rb_cycles": {
+      "rounds": 13,
+      "order": [
+       0,
+       2,
+       4,
+       6,
+       8,
+       10,
+       12,
+       1,
+       3,
+       5,
+       7,
+       9,
+       11
+      ],
+      "hazard_distance_no_bubbles": 6,
+      "cycles_per_iteration": 13,
+      "bubbles": 0,
+      "issue_cycles": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12
+      ]
+     },
+     "rb_ns_iter_at_ref_clock": 61.87529747739172,
+     "sweep_lut": 448213.0,
+     "sweep_W": 12,
+     "fully_parallel_lut": 2722752.0,
+     "ratio_fp_over_rb": 5.232348583409081,
+     "ratio_fp_over_sweep": 6.07468324211926
+    }
+   },
+   "rb": {
+    "block_lut": 1040738.0,
+    "block_pct": 25.47232338659148,
+    "blocks_fractional": 3.140663644452302,
+    "blocks": 3,
+    "logical_qubits": 36,
+    "at_blocks": {
+     "ff": 841734.0,
+     "ff_pct": 10.300825305451127,
+     "lutram": 227208.0,
+     "lutram_pct": 23.76255020080321
+    }
+   },
+   "sweep": {
+    "block_lut": 896426.0,
+    "block_pct": 21.940251018170425,
+    "blocks_fractional": 3.6462663956645613,
+    "blocks": 3,
+    "logical_qubits": 36
+   },
+   "fully_parallel": {
+    "block_lut": 5445504.0,
+    "block_pct": 133.2800751879699,
+    "blocks_fractional": 0.6002397574219025,
+    "blocks": 0,
+    "logical_qubits": 0
+   }
+  },
+  "288_12_18": {
+   "name": "[[288,12,18]]",
+   "basis": {
+    "X": {
+     "counts": {
+      "NPOS": 144,
+      "NT": 10,
+      "NHP": 7,
+      "NE0": 22,
+      "NE1": 13,
+      "NBASE": 35,
+      "NOBS": 12,
+      "W": 19,
+      "R": 19,
+      "o0_two_round": 10,
+      "o1": 13,
+      "rb_bits_per_home": 66240
+     },
+     "scale": {
+      "round_step": 2.0,
+      "memories": 2.0,
+      "gamma_lanes": 2.0,
+      "conv_check": 2.923076923076923,
+      "commit": 2.0,
+      "ctrl": 1.0,
+      "glue": 1.0
+     },
+     "rb_lut": 1060815.6500657778,
+     "rb_lut_parts": {
+      "glue": 79.99523443504997,
+      "memories": 125438.52723674096,
+      "gamma_lanes": 93624.4225019216,
+      "commit": 10575.369992313605,
+      "conv_check": 66083.90932980548,
+      "ctrl": 710.9576460415066,
+      "round_step": 764302.4681245196
+     },
+     "rb_lut_pct": 25.963728903943892,
+     "rb_ff": 259855.4615384615,
+     "rb_lutram": 75736.0,
+     "rb_measured": false,
+     "rb_cycles": {
+      "rounds": 19,
+      "order": [
+       0,
+       2,
+       4,
+       6,
+       8,
+       10,
+       12,
+       14,
+       16,
+       18,
+       1,
+       3,
+       5,
+       7,
+       9,
+       11,
+       13,
+       15,
+       17
+      ],
+      "hazard_distance_no_bubbles": 9,
+      "cycles_per_iteration": 19,
+      "bubbles": 0,
+      "issue_cycles": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ]
+     },
+     "rb_ns_iter_at_ref_clock": 90.43312708234174,
+     "sweep_lut": 990160.3840109498,
+     "sweep_W": 18,
+     "fully_parallel_lut": 8133408.0,
+     "ratio_fp_over_rb": 7.667126705281613,
+     "ratio_fp_over_sweep": 8.214232897354593
+    },
+    "Z": {
+     "counts": {
+      "NPOS": 144,
+      "NT": 10,
+      "NHP": 7,
+      "NE0": 25,
+      "NE1": 10,
+      "NBASE": 35,
+      "NOBS": 12,
+      "W": 19,
+      "R": 19,
+      "o0_two_round": 13,
+      "o1": 10,
+      "rb_bits_per_home": 66240
+     },
+     "scale": {
+      "round_step": 2.0,
+      "memories": 2.0,
+      "gamma_lanes": 2.0,
+      "conv_check": 2.923076923076923,
+      "commit": 2.0,
+      "ctrl": 1.0,
+      "glue": 1.0
+     },
+     "rb_lut": 1060815.6500657778,
+     "rb_lut_parts": {
+      "glue": 79.99523443504997,
+      "memories": 125438.52723674096,
+      "gamma_lanes": 93624.4225019216,
+      "commit": 10575.369992313605,
+      "conv_check": 66083.90932980548,
+      "ctrl": 710.9576460415066,
+      "round_step": 764302.4681245196
+     },
+     "rb_lut_pct": 25.963728903943892,
+     "rb_ff": 259855.4615384615,
+     "rb_lutram": 75736.0,
+     "rb_measured": false,
+     "rb_cycles": {
+      "rounds": 19,
+      "order": [
+       0,
+       2,
+       4,
+       6,
+       8,
+       10,
+       12,
+       14,
+       16,
+       18,
+       1,
+       3,
+       5,
+       7,
+       9,
+       11,
+       13,
+       15,
+       17
+      ],
+      "hazard_distance_no_bubbles": 9,
+      "cycles_per_iteration": 19,
+      "bubbles": 0,
+      "issue_cycles": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ]
+     },
+     "rb_ns_iter_at_ref_clock": 90.43312708234174,
+     "sweep_lut": 990160.3840109498,
+     "sweep_W": 18,
+     "fully_parallel_lut": 8133408.0,
+     "ratio_fp_over_rb": 7.667126705281613,
+     "ratio_fp_over_sweep": 8.214232897354593
+    }
+   },
+   "rb": {
+    "block_lut": 2121631.3001315556,
+    "block_pct": 51.927457807887784,
+    "blocks_fractional": 1.5406107554113309,
+    "blocks": 1,
+    "logical_qubits": 12,
+    "at_blocks": {
+     "ff": 519710.923076923,
+     "ff_pct": 6.360027547835935,
+     "lutram": 151472.0,
+     "lutram_pct": 15.841700133868809
+    }
+   },
+   "sweep": {
+    "block_lut": 1980320.7680218995,
+    "block_pct": 48.46884711833048,
+    "blocks_fractional": 1.6505447262793407,
+    "blocks": 1,
+    "logical_qubits": 12
+   },
+   "fully_parallel": {
+    "block_lut": 16266816.0,
+    "block_pct": 398.1343984962406,
+    "blocks_fractional": 0.20093717172432515,
+    "blocks": 0,
+    "logical_qubits": 0
+   }
+  }
+ },
+ "ibm_gross": {
+  "block_lut": 4213476,
+  "block_pct": 103.12588110902256,
+  "blocks": 0,
+  "blocks_fractional": 0.7757509476736073
+ }
+}

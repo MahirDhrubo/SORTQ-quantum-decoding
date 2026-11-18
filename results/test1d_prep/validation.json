@@ -1,0 +1,19 @@
+{
+ "shots": 300,
+ "windows": 1,
+ "decisions_identical": true,
+ "differing_decisions": 0,
+ "iterations_identical": true,
+ "shots_with_different_iterations": 0,
+ "seconds": 2.0,
+ "W6C3_syndrome_check": {
+  "shots_all_windows_converged": 300,
+  "syndrome_mismatches": 0,
+  "windows": 4
+ },
+ "W8C4_syndrome_check": {
+  "shots_all_windows_converged": 300,
+  "syndrome_mismatches": 0,
+  "windows": 3
+ }
+}

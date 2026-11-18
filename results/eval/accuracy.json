@@ -1,0 +1,224 @@
+{
+ "0.003": {
+  "shots": 168000,
+  "designs": {
+   "float_flood": {
+    "fails": 111,
+    "ler": 0.0006607142857142857,
+    "mean_it": 32.84950595238095,
+    "p99_9": 2015.0010000000184,
+    "max_it": 18080,
+    "not_converged": 17
+   },
+   "float_sweep": {
+    "fails": 124,
+    "ler": 0.0007380952380952381,
+    "mean_it": 24.152910714285714,
+    "p99_9": 1599.0030000000552,
+    "max_it": 18080,
+    "not_converged": 6
+   },
+   "int4_flood": {
+    "fails": 106,
+    "ler": 0.0006309523809523809,
+    "mean_it": 32.50689285714286,
+    "p99_9": 1979.0030000000552,
+    "max_it": 18080,
+    "not_converged": 18
+   },
+   "int4_sweep": {
+    "fails": 128,
+    "ler": 0.0007619047619047619,
+    "mean_it": 23.525904761904762,
+    "p99_9": 1264.0010000000184,
+    "max_it": 18080,
+    "not_converged": 9
+   },
+   "rb13": {
+    "fails": 138,
+    "ler": 0.0008214285714285715,
+    "mean_it": 24.106279761904762,
+    "p99_9": 1538.0,
+    "max_it": 18080,
+    "not_converged": 10
+   }
+  },
+  "pairs": [
+   {
+    "A": "rb13",
+    "B": "float_flood",
+    "both": 59,
+    "only_A": 79,
+    "only_B": 52,
+    "mcnemar_p": 0.02274326812824497
+   },
+   {
+    "A": "rb13",
+    "B": "int4_flood",
+    "both": 54,
+    "only_A": 84,
+    "only_B": 52,
+    "mcnemar_p": 0.007623827173866254
+   },
+   {
+    "A": "int4_sweep",
+    "B": "float_flood",
+    "both": 52,
+    "only_A": 76,
+    "only_B": 59,
+    "mcnemar_p": 0.16825920465992442
+   },
+   {
+    "A": "float_sweep",
+    "B": "float_flood",
+    "both": 51,
+    "only_A": 73,
+    "only_B": 60,
+    "mcnemar_p": 0.29807066339153926
+   }
+  ],
+  "identity_check": {
+   "shots_compared": 168000,
+   "iterations_differ": 0,
+   "logical_fail_differ": 0,
+   "success_differ": 0
+  }
+ },
+ "0.002": {
+  "shots": 600000,
+  "designs": {
+   "float_flood": {
+    "fails": 26,
+    "ler": 4.3333333333333334e-05,
+    "mean_it": 13.142076666666666,
+    "p99_9": 276.0,
+    "max_it": 18080,
+    "not_converged": 5
+   },
+   "float_sweep": {
+    "fails": 25,
+    "ler": 4.1666666666666665e-05,
+    "mean_it": 10.129336666666667,
+    "p99_9": 212.0,
+    "max_it": 18080,
+    "not_converged": 4
+   },
+   "int4_flood": {
+    "fails": 29,
+    "ler": 4.8333333333333334e-05,
+    "mean_it": 13.351926666666667,
+    "p99_9": 280.0,
+    "max_it": 18080,
+    "not_converged": 8
+   },
+   "int4_sweep": {
+    "fails": 19,
+    "ler": 3.1666666666666666e-05,
+    "mean_it": 10.254863333333333,
+    "p99_9": 216.0,
+    "max_it": 18080,
+    "not_converged": 3
+   },
+   "rb13": {
+    "fails": 22,
+    "ler": 3.6666666666666666e-05,
+    "mean_it": 9.854968333333334,
+    "p99_9": 216.0,
+    "max_it": 18080,
+    "not_converged": 2
+   }
+  },
+  "pairs": [
+   {
+    "A": "rb13",
+    "B": "float_flood",
+    "both": 10,
+    "only_A": 12,
+    "only_B": 16,
+    "mcnemar_p": 0.5715881884098053
+   },
+   {
+    "A": "rb13",
+    "B": "int4_flood",
+    "both": 10,
+    "only_A": 12,
+    "only_B": 19,
+    "mcnemar_p": 0.28104151505976915
+   },
+   {
+    "A": "int4_sweep",
+    "B": "float_flood",
+    "both": 8,
+    "only_A": 11,
+    "only_B": 18,
+    "mcnemar_p": 0.26493089646101
+   },
+   {
+    "A": "float_sweep",
+    "B": "float_flood",
+    "both": 11,
+    "only_A": 14,
+    "only_B": 15,
+    "mcnemar_p": 1.0
+   }
+  ],
+  "identity_check": {
+   "shots_compared": 600000,
+   "iterations_differ": 0,
+   "logical_fail_differ": 0,
+   "success_differ": 0
+  }
+ },
+ "0.001": {
+  "shots": 600000,
+  "designs": {
+   "float_flood": {
+    "fails": 1,
+    "ler": 1.6666666666666667e-06,
+    "mean_it": 6.899831666666667,
+    "p99_9": 45.0,
+    "max_it": 1806,
+    "not_converged": 0
+   },
+   "int4_sweep": {
+    "fails": 2,
+    "ler": 3.3333333333333333e-06,
+    "mean_it": 5.51846,
+    "p99_9": 41.0,
+    "max_it": 2500,
+    "not_converged": 0
+   },
+   "rb13": {
+    "fails": 1,
+    "ler": 1.6666666666666667e-06,
+    "mean_it": 5.4046666666666665,
+    "p99_9": 38.0,
+    "max_it": 2465,
+    "not_converged": 0
+   }
+  },
+  "pairs": [
+   {
+    "A": "rb13",
+    "B": "float_flood",
+    "both": 0,
+    "only_A": 1,
+    "only_B": 1,
+    "mcnemar_p": 1.0
+   },
+   {
+    "A": "rb13",
+    "B": "int4_sweep",
+    "both": 1,
+    "only_A": 0,
+    "only_B": 1,
+    "mcnemar_p": 1.0
+   }
+  ],
+  "identity_check": {
+   "iterations": 0,
+   "success": 0,
+   "logical_fail": 0
+  }
+ }
+}

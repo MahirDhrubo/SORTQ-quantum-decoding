@@ -1,0 +1,271 @@
+{
+ "rows": [
+  {
+   "trace": "fresh rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 233.0,
+   "binding": "queue max",
+   "per_round_ns": 17.923076923076923,
+   "util": 0.47539632300833334,
+   "lat_p999_us": 5575.198098000016,
+   "queue_max": 998,
+   "ibm_meets": true,
+   "ibm": {
+    "util": 0.08264221526666667,
+    "lat_p999_us": 354.52,
+    "queue_max": 65
+   }
+  },
+  {
+   "trace": "fresh rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 11.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 0.8461538461538461,
+   "util": 0.038323431558333336,
+   "lat_p999_us": 94.629,
+   "queue_max": 23,
+   "ibm_meets": false,
+   "ibm": {
+    "util": 0.08264221526666667,
+    "lat_p999_us": 354.52,
+    "queue_max": 65
+   }
+  },
+  {
+   "trace": "fresh rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 61.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 4.6923076923076925,
+   "util": 0.13676327197500002,
+   "lat_p999_us": 990.8620130000021,
+   "queue_max": 172,
+   "ibm_meets": true,
+   "ibm": {
+    "util": 0.08264221526666667,
+    "lat_p999_us": 354.52,
+    "queue_max": 65
+   }
+  },
+  {
+   "trace": "fresh rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 321.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 24.692307692307693,
+   "util": 0.6486504421416667,
+   "lat_p999_us": 9965.412223000036,
+   "queue_max": 1453,
+   "ibm_meets": true,
+   "ibm": {
+    "util": 0.08264221526666667,
+    "lat_p999_us": 354.52,
+    "queue_max": 65
+   }
+  },
+  {
+   "trace": "pooled rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 240.0,
+   "binding": "queue max",
+   "per_round_ns": 18.46153846153846,
+   "util": 0.49546151466666666,
+   "lat_p999_us": 6048.64,
+   "queue_max": 996,
+   "ibm_meets": true,
+   "ibm": {
+    "util": 0.08252488126666667,
+    "lat_p999_us": 346.2800160000026,
+    "queue_max": 71
+   }
+  },
+  {
+   "trace": "pooled rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 11.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 0.8461538461538461,
+   "util": 0.03861143053333333,
+   "lat_p999_us": 93.991,
+   "queue_max": 28,
+   "ibm_meets": false,
+   "ibm": {
+    "util": 0.08252488126666667,
+    "lat_p999_us": 346.2800160000026,
+    "queue_max": 71
+   }
+  },
+  {
+   "trace": "pooled rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 62.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 4.769230769230769,
+   "util": 0.14035533573333334,
+   "lat_p999_us": 995.4940420000069,
+   "queue_max": 205,
+   "ibm_meets": true,
+   "ibm": {
+    "util": 0.08252488126666667,
+    "lat_p999_us": 346.2800160000026,
+    "queue_max": 71
+   }
+  },
+  {
+   "trace": "pooled rb13 (+ float flood at 24 ns)",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 310.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 23.846153846153847,
+   "util": 0.6351100120000001,
+   "lat_p999_us": 9989.600010000002,
+   "queue_max": 1333,
+   "ibm_meets": true,
+   "ibm": {
+    "util": 0.08252488126666667,
+    "lat_p999_us": 346.2800160000026,
+    "queue_max": 71
+   }
+  },
+  {
+   "trace": "fresh float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 224.0,
+   "binding": "queue max",
+   "per_round_ns": 17.23076923076923,
+   "util": 0.6324384536,
+   "lat_p999_us": 7562.424040000006,
+   "queue_max": 994
+  },
+  {
+   "trace": "fresh float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 9.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 0.6923076923076923,
+   "util": 0.041407497391666666,
+   "lat_p999_us": 92.70500900000148,
+   "queue_max": 22
+  },
+  {
+   "trace": "fresh float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 58.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 4.461538461538462,
+   "util": 0.17610757578333336,
+   "lat_p999_us": 988.7760260000042,
+   "queue_max": 168
+  },
+  {
+   "trace": "fresh float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 254.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 19.53846153846154,
+   "util": 0.71490788935,
+   "lat_p999_us": 9952.358266000043,
+   "queue_max": 1240
+  },
+  {
+   "trace": "pooled float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "a",
+   "rounds": 13,
+   "t_iter_max_ns": 240.0,
+   "binding": "queue max",
+   "per_round_ns": 18.46153846153846,
+   "util": 0.6752488126666666,
+   "lat_p999_us": 8027.96012000002,
+   "queue_max": 997
+  },
+  {
+   "trace": "pooled float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "b",
+   "rounds": 13,
+   "t_iter_max_ns": 10.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 0.7692307692307693,
+   "util": 0.04410758941666666,
+   "lat_p999_us": 99.61,
+   "queue_max": 29
+  },
+  {
+   "trace": "pooled float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "c",
+   "rounds": 13,
+   "t_iter_max_ns": 59.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 4.538461538461538,
+   "util": 0.1785681108916667,
+   "lat_p999_us": 994.763,
+   "queue_max": 176
+  },
+  {
+   "trace": "pooled float flood",
+   "p": "0.003",
+   "T_us": 12.0,
+   "crit": "d",
+   "rounds": 13,
+   "t_iter_max_ns": 259.0,
+   "binding": "p99.9 latency",
+   "per_round_ns": 19.923076923076923,
+   "util": 0.7273865658916667,
+   "lat_p999_us": 9962.390018000004,
+   "queue_max": 1263
+  }
+ ],
+ "criteria": {
+  "a": "util < 0.7 and queue max < 1000",
+  "b": "p99.9 < 100 us",
+  "c": "p99.9 < 1 ms",
+  "d": "p99.9 < 10 ms"
+ },
+ "K": 18080,
+ "overhead_ns": 200.0,
+ "jobs": 10000000,
+ "seed": 20261112,
+ "seconds": 15.209043264389038
+}

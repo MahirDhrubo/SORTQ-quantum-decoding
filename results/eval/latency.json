@@ -1,0 +1,130 @@
+{
+ "rows": [
+  {
+   "design": "fully parallel (float flood)",
+   "p": "0.003",
+   "ns_per_iter": 24.0,
+   "trace": "test1b/p0.003_float_flood.npz",
+   "util": 0.08248092066666667,
+   "lat_p999_us": 343.95201600000263,
+   "queue_max": 67,
+   "meets_c": true,
+   "meets_b": false
+  },
+  {
+   "design": "fully parallel (float flood)",
+   "p": "0.002",
+   "ns_per_iter": 24.0,
+   "trace": "test1b/p0.002_float_flood.npz",
+   "util": 0.042866798666666664,
+   "lat_p999_us": 16.448,
+   "queue_max": 36,
+   "meets_c": true,
+   "meets_b": true
+  },
+  {
+   "design": "fully parallel (float flood)",
+   "p": "0.001",
+   "ns_per_iter": 24.0,
+   "trace": "test1b/p0.001_float_flood.npz",
+   "util": 0.03045806026666667,
+   "lat_p999_us": 1.304,
+   "queue_max": 3,
+   "meets_c": true,
+   "meets_b": true
+  },
+  {
+   "design": "SORTQ sweep (int4.2.8 sweep)",
+   "p": "0.003",
+   "ns_per_iter": 188.2,
+   "trace": "test1b/p0.003_int4.2.8_sweep.npz",
+   "util": 0.38552150125884643,
+   "lat_p999_us": 3545.051760000026,
+   "queue_max": 648,
+   "meets_c": false,
+   "meets_b": false
+  },
+  {
+   "design": "SORTQ sweep (int4.2.8 sweep)",
+   "p": "0.002",
+   "ns_per_iter": 188.2,
+   "trace": "test1b/p0.002_int4.2.8_sweep.npz",
+   "util": 0.1770535892618195,
+   "lat_p999_us": 1324.0044238000035,
+   "queue_max": 283,
+   "meets_c": false,
+   "meets_b": false
+  },
+  {
+   "design": "SORTQ sweep (int4.2.8 sweep)",
+   "p": "0.001",
+   "ns_per_iter": 188.2,
+   "trace": "test1b/p0.001_int4.2.8_sweep.npz",
+   "util": 0.10314352372914082,
+   "lat_p999_us": 10.551,
+   "queue_max": 39,
+   "meets_c": true,
+   "meets_b": true
+  },
+  {
+   "design": "SORTQ red-black (rb13 int4.2.8)",
+   "p": "0.003",
+   "ns_per_iter": 61.88,
+   "trace": "test1g/p0.003_rb13.npz",
+   "util": 0.1414333005999296,
+   "lat_p999_us": 986.3011200000003,
+   "queue_max": 178,
+   "meets_c": true,
+   "meets_b": false
+  },
+  {
+   "design": "SORTQ red-black (rb13 int4.2.8)",
+   "p": "0.002",
+   "ns_per_iter": 61.88,
+   "trace": "test1g/p0.002_rb13.npz",
+   "util": 0.06732295838346097,
+   "lat_p999_us": 191.20554940000497,
+   "queue_max": 93,
+   "meets_c": true,
+   "meets_b": false
+  },
+  {
+   "design": "SORTQ red-black (rb13 int4.2.8)",
+   "p": "0.001",
+   "ns_per_iter": 61.88,
+   "trace": "test1g/p001/p0.001_rb13.npz",
+   "util": 0.04452907879217694,
+   "lat_p999_us": 2.6752000000000002,
+   "queue_max": 12,
+   "meets_c": true,
+   "meets_b": true
+  },
+  {
+   "design": "SORTQ red-black, fresh shots",
+   "p": "0.003",
+   "ns_per_iter": 61.88,
+   "trace": "test1h/step2/p0.003_rb13_int4.npz",
+   "util": 0.138495813168303,
+   "lat_p999_us": 1007.1784000000001,
+   "queue_max": 175,
+   "meets_c": false,
+   "meets_b": false
+  },
+  {
+   "design": "SORTQ red-black, pooled",
+   "p": "0.003",
+   "ns_per_iter": 61.88,
+   "trace": "test1h/criteria_robust/traces/pooled_p0.003_sweep.npz",
+   "util": 0.1401159383112885,
+   "lat_p999_us": 993.2801734000014,
+   "queue_max": 205,
+   "meets_c": true,
+   "meets_b": false
+  }
+ ],
+ "T_us": 12.0,
+ "jobs": 10000000,
+ "seed": 20261112,
+ "K": 18080,
+ "overhead_ns": 200.0
+}

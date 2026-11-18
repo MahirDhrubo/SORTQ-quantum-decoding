@@ -1,0 +1,44 @@
+{
+ "set": "1d_p0.003_36r",
+ "shots": 30000,
+ "segments": [
+  {
+   "seed": 1000,
+   "calls": 1,
+   "call_size": 5000
+  },
+  {
+   "seed": 1001,
+   "calls": 1,
+   "call_size": 5000
+  },
+  {
+   "seed": 1002,
+   "calls": 1,
+   "call_size": 5000
+  },
+  {
+   "seed": 1003,
+   "calls": 1,
+   "call_size": 5000
+  },
+  {
+   "seed": 1004,
+   "calls": 1,
+   "call_size": 5000
+  },
+  {
+   "seed": 1005,
+   "calls": 1,
+   "call_size": 5000
+  }
+ ],
+ "circuit": "circuits/bb_ibm_rounds/circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=36,error_rate=0.003,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim",
+ "circuit_sha256": "bf30aa691aa946fb59fb162095ef862affd847a51ce6cadfb1810c2f46b3a238",
+ "stim_version": "1.16.0",
+ "num_detectors": 5184,
+ "num_observables": 12,
+ "bitorder": "little",
+ "seconds": 0.5,
+ "file_sha256": "de77a99f973497dca5daf71434d59673f1fcd9f47350bc1af5dcadd45c7e77ca"
+}

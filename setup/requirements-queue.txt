@@ -1,0 +1,5 @@
+# Queue-model / statistics environment (Python 3.14 in the paper's runs): test1e_queue.py, *_criteria.py,
+# eval_accuracy.py, eval_latency.py, review_queue.py, review_stats.py, review_fig8_lines.py, test1h_report.py.
+numpy==2.5.4
+numba==0.68.1
+matplotlib==3.11.2

@@ -1,0 +1,39 @@
+{
+ "wide_vs_float_sweep": {
+  "shots": 1000,
+  "differing_decisions": 2227,
+  "shots_with_different_decoding": 393,
+  "shots_with_different_iterations": 611,
+  "shots_with_different_convergence": 0
+ },
+ "wide_vs_float_flood": {
+  "shots": 1000,
+  "differing_decisions": 1747,
+  "shots_with_different_decoding": 322,
+  "shots_with_different_iterations": 569,
+  "shots_with_different_convergence": 0
+ },
+ "flood_vs_1layer_float": {
+  "shots": 300,
+  "decoding": true,
+  "iterations": true,
+  "posteriors": true
+ },
+ "flood_vs_1layer_int4.2.8": {
+  "shots": 300,
+  "decoding": true,
+  "iterations": true,
+  "posteriors": true,
+  "sat_counts": true
+ },
+ "gamma_grid_probabilities": {
+  "-2/8": 0.045742357833691454,
+  "-1/8": 0.14742540695667908,
+  "0/8": 0.14742540695667908,
+  "1/8": 0.14742540695667908,
+  "2/8": 0.14742540695667908,
+  "3/8": 0.14742540695667908,
+  "4/8": 0.14742540695667908,
+  "5/8": 0.06970520042623408
+ }
+}

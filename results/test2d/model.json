@@ -1,0 +1,515 @@
+{
+ "calibration": {
+  "cnu": {
+   "35": {
+    "n": 792,
+    "lut": 810.0,
+    "ff": 191.0
+   },
+   "25": {
+    "n": 72,
+    "lut": 551.0,
+    "ff": 140.0
+   },
+   "16": {
+    "n": 72,
+    "lut": 353.0,
+    "ff": 94.0
+   }
+  },
+  "vnu": {
+   "2": {
+    "n": 864,
+    "lut": 167.0,
+    "ff": 26.0
+   },
+   "3": {
+    "n": 5328,
+    "lut": 195.0,
+    "ff": 31.0
+   },
+   "4": {
+    "n": 864,
+    "lut": 279.0,
+    "ff": 36.0
+   },
+   "5": {
+    "n": 864,
+    "lut": 321.0,
+    "ff": 41.0
+   },
+   "6": {
+    "n": 864,
+    "lut": 364.0,
+    "ff": 46.0
+   }
+  },
+  "cnu_lut": 706608.0,
+  "vnu_lut": 2016144.0,
+  "cnu_ff": 168120.0,
+  "vnu_ff": 293904.0,
+  "gamma_lane_lut_each": 71.01805555555555,
+  "gamma_lane_ff_each": 20.0,
+  "gamma_lanes_lut": 623822.6,
+  "mpost_ff": 61488,
+  "base_lut": 2722752.0,
+  "with_gamma_lut": 3346574.6,
+  "ratio_base_vs_ibm": 1.2965485714285714,
+  "ratio_gamma_vs_ibm": 1.5936069523809524
+ },
+ "engines": {
+  "pf2 P1": {
+   "run": "engine_top_pf2_p1_lutram_fmax",
+   "passes": 1,
+   "period_ns": 6.84,
+   "clock_mhz": 146.19883040935673,
+   "lut_total": 450227.0,
+   "lut_round_step": 301131.0,
+   "lut_shared": 149096.0,
+   "ff_total": 127677.0,
+   "ff_round_step": 42662.0,
+   "lutram": 19096.0,
+   "gamma_lanes_lut": 51133.0,
+   "k": {
+    "1": {
+     "lut": 450227.0,
+     "lut_pct": 11.019418663847118,
+     "lut_with_lanes": 450227.0,
+     "ff": 127677.0,
+     "lutram": 19096.0,
+     "layers_13r": 13,
+     "cycles_13r": 26,
+     "ns_13r": 177.84,
+     "cycles_w12": 24,
+     "ns_w12": 164.16,
+     "measured": true
+    },
+    "2": {
+     "lut": 751358.0,
+     "lut_pct": 18.38967536027569,
+     "lut_with_lanes": 802491.0,
+     "ff": 170339.0,
+     "lutram": 19096.0,
+     "layers_13r": 7,
+     "cycles_13r": 14,
+     "ns_13r": 95.75999999999999,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    },
+    "3": {
+     "lut": 1052489.0,
+     "lut_pct": 25.759932056704262,
+     "lut_with_lanes": 1154755.0,
+     "ff": 213001.0,
+     "lutram": 19096.0,
+     "layers_13r": 5,
+     "cycles_13r": 10,
+     "ns_13r": 68.4,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    },
+    "4": {
+     "lut": 1353620.0,
+     "lut_pct": 33.130188753132835,
+     "lut_with_lanes": 1507019.0,
+     "ff": 255663.0,
+     "lutram": 19096.0,
+     "layers_13r": 4,
+     "cycles_13r": 8,
+     "ns_13r": 54.72,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    }
+   }
+  },
+  "pf2 P2": {
+   "run": "engine_top_pf2_p2_lutram_fmax",
+   "passes": 2,
+   "period_ns": 7.65,
+   "clock_mhz": 130.718954248366,
+   "lut_total": 375741.0,
+   "lut_round_step": 212871.0,
+   "lut_shared": 162870.0,
+   "ff_total": 119816.0,
+   "ff_round_step": 35113.0,
+   "lutram": 19096.0,
+   "gamma_lanes_lut": 49637.0,
+   "k": {
+    "1": {
+     "lut": 375741.0,
+     "lut_pct": 9.196355145676693,
+     "lut_with_lanes": 375741.0,
+     "ff": 119816.0,
+     "lutram": 19096.0,
+     "layers_13r": 13,
+     "cycles_13r": 39,
+     "ns_13r": 298.35,
+     "cycles_w12": 36,
+     "ns_w12": 275.40000000000003,
+     "measured": true
+    },
+    "2": {
+     "lut": 588612.0,
+     "lut_pct": 14.40642622180451,
+     "lut_with_lanes": 638249.0,
+     "ff": 154929.0,
+     "lutram": 19096.0,
+     "layers_13r": 7,
+     "cycles_13r": 21,
+     "ns_13r": 160.65,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    },
+    "3": {
+     "lut": 801483.0,
+     "lut_pct": 19.61649729793233,
+     "lut_with_lanes": 900757.0,
+     "ff": 190042.0,
+     "lutram": 19096.0,
+     "layers_13r": 5,
+     "cycles_13r": 15,
+     "ns_13r": 114.75,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    },
+    "4": {
+     "lut": 1014354.0,
+     "lut_pct": 24.82656837406015,
+     "lut_with_lanes": 1163265.0,
+     "ff": 225155.0,
+     "lutram": 19096.0,
+     "layers_13r": 4,
+     "cycles_13r": 12,
+     "ns_13r": 91.80000000000001,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    }
+   }
+  },
+  "pf P1": {
+   "run": "engine_top_pf_p1_lutram_fmax",
+   "passes": 1,
+   "period_ns": 7.36,
+   "clock_mhz": 135.8695652173913,
+   "lut_total": 444792.0,
+   "lut_round_step": 291965.0,
+   "lut_shared": 152827.0,
+   "ff_total": 126499.0,
+   "ff_round_step": 41814.0,
+   "lutram": 19096.0,
+   "gamma_lanes_lut": 51403.0,
+   "k": {
+    "1": {
+     "lut": 444792.0,
+     "lut_pct": 10.886395676691729,
+     "lut_with_lanes": 444792.0,
+     "ff": 126499.0,
+     "lutram": 19096.0,
+     "layers_13r": 13,
+     "cycles_13r": 26,
+     "ns_13r": 191.36,
+     "cycles_w12": 24,
+     "ns_w12": 176.64000000000001,
+     "measured": true
+    },
+    "2": {
+     "lut": 736757.0,
+     "lut_pct": 18.03231222587719,
+     "lut_with_lanes": 788160.0,
+     "ff": 168313.0,
+     "lutram": 19096.0,
+     "layers_13r": 7,
+     "cycles_13r": 14,
+     "ns_13r": 103.04,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    },
+    "3": {
+     "lut": 1028722.0,
+     "lut_pct": 25.178228775062657,
+     "lut_with_lanes": 1131528.0,
+     "ff": 210127.0,
+     "lutram": 19096.0,
+     "layers_13r": 5,
+     "cycles_13r": 10,
+     "ns_13r": 73.60000000000001,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    },
+    "4": {
+     "lut": 1320687.0,
+     "lut_pct": 32.32414532424812,
+     "lut_with_lanes": 1474896.0,
+     "ff": 251941.0,
+     "lutram": 19096.0,
+     "layers_13r": 4,
+     "cycles_13r": 8,
+     "ns_13r": 58.88,
+     "cycles_w12": null,
+     "ns_w12": null,
+     "measured": false
+    }
+   }
+  }
+ },
+ "memory": {
+  "lutram_per_bit_slot": 0.5717171717171717,
+  "bits_per_slot": {
+   "v2c_o0": 7920,
+   "c2v_o1": 4680,
+   "marg": 17136,
+   "g8": 3672
+  },
+  "total_bits_per_slot": 33408,
+  "variants": {
+   "a": {
+    "name": "compressed c2v_o1 per check",
+    "old_bits": 4680,
+    "new_bits": 1944,
+    "delta_bits": -2736,
+    "delta_lutram": -1564.2181818181818,
+    "decompress_edges": 936,
+    "decompress_lut_est": 4680
+   },
+   "b": {
+    "name": "v2c not stored, recomputed",
+    "removed_bits": 12600,
+    "added_bits": 8424,
+    "added_c2v_bits": 3528,
+    "added_marg_bits": 4896,
+    "delta_bits": -4176,
+    "delta_lutram": -2387.490909090909,
+    "subtractors": 1584,
+    "recompute_lut_est": 31680
+   },
+   "c": {
+    "name": "per-error prior RAM",
+    "bits_per_row": 6120,
+    "rows": 13,
+    "total_bits": 79560,
+    "lutram": 3498.909090909091,
+    "removed_ff": 650.0,
+    "removed_lut": 536.0,
+    "removed_copies_ff": 3600
+   }
+  }
+ },
+ "pareto": [
+  {
+   "design": "IBM fully parallel (flood)",
+   "k": "flood",
+   "passes": "-",
+   "lut": 2100000.0,
+   "lut_pct": 51.6,
+   "clock": "as published",
+   "ns_13r": 24.0,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_13r_p0.002": "abcd",
+   "meets_13r_p0.003": "acd",
+   "meets_w12_p0.001": "n/a",
+   "meets_w12_p0.002": "n/a",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf2 P1",
+   "k": 1,
+   "passes": 1,
+   "lut": 450227.0,
+   "lut_pct": 11.019418663847118,
+   "clock": "146.2 MHz measured",
+   "ns_13r": 177.84,
+   "ns_w12": 164.16,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "ad",
+   "meets_w12_p0.002": "ad",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "none"
+  },
+  {
+   "design": "SORTQ pf2 P1",
+   "k": 2,
+   "passes": 1,
+   "lut": 751358.0,
+   "lut_pct": 18.38967536027569,
+   "clock": "146.2 MHz assumed = k1",
+   "ns_13r": 95.75999999999999,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "acd",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf2 P1",
+   "k": 3,
+   "passes": 1,
+   "lut": 1052489.0,
+   "lut_pct": 25.759932056704262,
+   "clock": "146.2 MHz assumed = k1",
+   "ns_13r": 68.4,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "acd",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf2 P1",
+   "k": 4,
+   "passes": 1,
+   "lut": 1353620.0,
+   "lut_pct": 33.130188753132835,
+   "clock": "146.2 MHz assumed = k1",
+   "ns_13r": 54.72,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "acd",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "acd",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf2 P2",
+   "k": 1,
+   "passes": 2,
+   "lut": 375741.0,
+   "lut_pct": 9.196355145676693,
+   "clock": "130.7 MHz measured",
+   "ns_13r": 298.35,
+   "ns_w12": 275.40000000000003,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "ad",
+   "meets_w12_p0.002": "d",
+   "meets_13r_p0.003": "d",
+   "meets_w12_p0.003": "none"
+  },
+  {
+   "design": "SORTQ pf2 P2",
+   "k": 2,
+   "passes": 2,
+   "lut": 588612.0,
+   "lut_pct": 14.40642622180451,
+   "clock": "130.7 MHz assumed = k1",
+   "ns_13r": 160.65,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "ad",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf2 P2",
+   "k": 3,
+   "passes": 2,
+   "lut": 801483.0,
+   "lut_pct": 19.61649729793233,
+   "clock": "130.7 MHz assumed = k1",
+   "ns_13r": 114.75,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "ad",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf2 P2",
+   "k": 4,
+   "passes": 2,
+   "lut": 1014354.0,
+   "lut_pct": 24.82656837406015,
+   "clock": "130.7 MHz assumed = k1",
+   "ns_13r": 91.80000000000001,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "acd",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf P1",
+   "k": 1,
+   "passes": 1,
+   "lut": 444792.0,
+   "lut_pct": 10.886395676691729,
+   "clock": "135.9 MHz measured",
+   "ns_13r": 191.36,
+   "ns_w12": 176.64000000000001,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "ad",
+   "meets_w12_p0.002": "ad",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "none"
+  },
+  {
+   "design": "SORTQ pf P1",
+   "k": 2,
+   "passes": 1,
+   "lut": 736757.0,
+   "lut_pct": 18.03231222587719,
+   "clock": "135.9 MHz assumed = k1",
+   "ns_13r": 103.04,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "acd",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf P1",
+   "k": 3,
+   "passes": 1,
+   "lut": 1028722.0,
+   "lut_pct": 25.178228775062657,
+   "clock": "135.9 MHz assumed = k1",
+   "ns_13r": 73.60000000000001,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "acd",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  },
+  {
+   "design": "SORTQ pf P1",
+   "k": 4,
+   "passes": 1,
+   "lut": 1320687.0,
+   "lut_pct": 32.32414532424812,
+   "clock": "135.9 MHz assumed = k1",
+   "ns_13r": 58.88,
+   "ns_w12": null,
+   "meets_13r_p0.001": "abcd",
+   "meets_w12_p0.001": "n/a",
+   "meets_13r_p0.002": "acd",
+   "meets_w12_p0.002": "n/a",
+   "meets_13r_p0.003": "ad",
+   "meets_w12_p0.003": "n/a"
+  }
+ ]
+}

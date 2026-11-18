@@ -1,0 +1,24 @@
+[cnu golden, OUT_REG=1] tb_cnu N=4 DEG=35 OUT_REG=1: vectors 339768, valid edges 11133936, mismatching vectors 0, mismatching edges 0, min1/min2 mismatches 0 => PASS
+[cnu golden, OUT_REG=0] tb_cnu N=4 DEG=35 OUT_REG=0: vectors 339768, valid edges 11133936, mismatching vectors 0, mismatching edges 0, min1/min2 mismatches 0 => PASS
+[vnu golden, OUT_REG=1] tb_vnu N=4 DV=6 OUT_REG=1: vectors 5384016 (init 88992, gated stale edges 67392), mismatching vectors 0 [bias 0, marg 0, hard 0, v2c 0] => PASS
+[vnu golden, OUT_REG=0] tb_vnu N=4 DV=6 OUT_REG=0: vectors 5384016 (init 88992, gated stale edges 67392), mismatching vectors 0 [bias 0, marg 0, hard 0, v2c 0] => PASS
+[cnu N=6 random model] tb_cnu N=6 DEG=35 OUT_REG=1: vectors 200000, valid edges 3603239, mismatching vectors 0, mismatching edges 0, min1/min2 mismatches 0 => PASS
+[vnu N=6 random model] tb_vnu N=6 DV=6 OUT_REG=1: vectors 1000000 (init 199552, gated stale edges 348994), mismatching vectors 0 [bias 0, marg 0, hard 0, v2c 0] => PASS
+[gamma_src] tb_gamma_src: LOAD mismatches 0 / 10000; LFSR: out-of-set 0, period 65535 yes, early returns 0 => PASS
+[rot2d PIPE=1] tb_rot2d PIPE=1: shifts 72, tests 1512 (72 x 21), mismatching tests 0, mismatching lanes 0 => PASS
+[rot2d PIPE=0] tb_rot2d PIPE=0: shifts 72, tests 1512 (72 x 21), mismatching tests 0, mismatching lanes 0 => PASS
+[round_wiring K=1] tb_round_wiring K_ROUNDS=1: expected edges 2520 (x 1 rounds), forward mismatches 0, backward mismatches 0, coverage errors 0 => PASS
+[round_wiring K=2] tb_round_wiring K_ROUNDS=2: expected edges 2520 (x 2 rounds), forward mismatches 0, backward mismatches 0, coverage errors 0 => PASS
+[conv_check] tb_conv_check W=12: vectors 400 (converged 200), conv mismatches 0, unsat-vector mismatches 0, latency 5 cycles => PASS
+[ctrl] tb_ctrl: A: steps checked 41 (expected lines 41), mask mismatches 0, sequence errors 0, duplicate-copy mismatches 0; B   ok; C   ok => PASS
+[commit] tb_commit: vectors 80 (with carry 60), logical-frame mismatches 0, syndrome-carry mismatches 0 => PASS
+[state_mem BRAM RD_LAT=1] tb_state_mem STORAGE=BRAM RD_LAT=1: 20000 cycles, reads checked 9988, cycles full 174, write conflicts 2544, mismatches 0 => PASS
+[state_mem LUTRAM RD_LAT=1] tb_state_mem STORAGE=LUTRAM RD_LAT=1: 20000 cycles, reads checked 9988, cycles full 174, write conflicts 2544, mismatches 0 => PASS
+[state_mem LUTRAM RD_LAT=0] tb_state_mem STORAGE=LUTRAM RD_LAT=0: 20000 cycles, reads checked 9988, cycles full 174, write conflicts 2544, mismatches 0 => PASS
+[state_mem REG RD_LAT=1] tb_state_mem STORAGE=REG RD_LAT=1: 20000 cycles, reads checked 9988, cycles full 174, write conflicts 2544, mismatches 0 => PASS
+[state_mem REG RD_LAT=0] tb_state_mem STORAGE=REG RD_LAT=0: 20000 cycles, reads checked 9988, cycles full 174, write conflicts 2544, mismatches 0 => PASS
+[round_step golden, VNU_PASSES=1, 3 shots x 2 legs] tb_round_step VNU_PASSES=1 vectors/round_vectors.txt: priors loaded 130, round steps 4719 (init 78, leg starts 6), error updates compared 5384016, mismatching steps 0 [c2v 0, vnu 0], latency start->out_valid 2 cycles (errors 0), in_ready errors 0 => PASS
+[round_step golden, VNU_PASSES=1, 580-iteration shot, 10 legs] tb_round_step VNU_PASSES=1 vectors/round_vectors_legs10.txt: priors loaded 130, round steps 7540 (init 130, leg starts 10), error updates compared 8602560, mismatching steps 0 [c2v 0, vnu 0], latency start->out_valid 2 cycles (errors 0), in_ready errors 0 => PASS
+[round_step golden, VNU_PASSES=2, 3 shots x 2 legs] tb_round_step VNU_PASSES=2 vectors/round_vectors.txt: priors loaded 130, round steps 4719 (init 78, leg starts 6), error updates compared 5384016, mismatching steps 0 [c2v 0, vnu 0], latency start->out_valid 3 cycles (errors 0), in_ready errors 0 => PASS
+[round_step golden, VNU_PASSES=2, 580-iteration shot, 10 legs] tb_round_step VNU_PASSES=2 vectors/round_vectors_legs10.txt: priors loaded 130, round steps 7540 (init 130, leg starts 10), error updates compared 8602560, mismatching steps 0 [c2v 0, vnu 0], latency start->out_valid 3 cycles (errors 0), in_ready errors 0 => PASS
+== 23 PASS, 0 FAIL, 0 other

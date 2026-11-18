@@ -1,0 +1,17 @@
+period 4.76
+place_directive WLDrivenBlockPlacement
+wns -0.107
+wns_after_place 0.348
+wns_after_place_physopt 0.348
+wns_after_route -0.130
+start dut/u_rs/g_cp[0].ff3_reg/C
+end dut/u_rs/r_mc_reg[8][0][6]/D
+logic_levels 1
+datapath_delay 4.848
+logic_delay 0.132
+net_delay 4.716
+route_status 0
+t_opt_place_s 2444
+t_physopt_s 52
+t_route_s 2862
+t_postroute_physopt_s 549

@@ -1,0 +1,16 @@
+{
+ "tag": "p0.003",
+ "setting": "W6_C3",
+ "W": 6,
+ "C": 3,
+ "rounds": 36,
+ "shots": 30000,
+ "windows": 12,
+ "fails": 78,
+ "ler": 0.0026,
+ "ler_per_round": 7.240541046266147e-05,
+ "windows_not_converged": 33,
+ "shots_with_unconverged_window": 21,
+ "syndrome_mismatch_in_fully_converged_shots": 0,
+ "cpu_seconds": 1604.4982097148895
+}

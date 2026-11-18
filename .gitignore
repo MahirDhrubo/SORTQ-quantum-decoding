@@ -1,1 +1,35 @@
+# Python
 __pycache__/
+*.pyc
+.venv*/
+*.egg-info/
+
+# environments and fetched sources (setup/)
+.hdl_env/
+build/
+
+# regenerated data: shots, per-shot traces, golden dumps, test vectors
+archive/shots/*.npz
+results/**/*.npz
+*.bin
+hw/tb/vectors/
+hw/**/shots/
+hw/**/shots_lfsr/
+hw/rb/sim/shots_lfsr.txt
+hw/rb/sim/lfsr_rtl.txt
+
+# Verilator build folders
+obj_*/
+
+# Vivado outputs
+.Xil/
+*.jou
+*.dcp
+vivado*.log
+vivado*.str
+hw/**/runs/*/cong/
+hw/**/runs/*/stdout.txt
+hw/**/runs/*/clockInfo.txt
+
+# figures (rebuilt by scripts/fig6.py)
+figures/

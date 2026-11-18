@@ -1,0 +1,13 @@
+run engine_top_pf2_p1_lutram
+period 6.84
+wns 0.048
+start dut/u_rs/g_t[7].g_p[35].g_cur_unit.u_cur/g_reg.v2c_mag_reg[3][3]/C
+end dut/u_rs/g_cnu[46].u_cnu/g_reg.out_mag_reg[19][1]/D
+logic_levels 19
+datapath_delay 6.774
+logic_delay 2.063
+net_delay 4.711
+route_status 0
+t_synth_s 1413
+t_opt_place_s 2064
+t_route_s 1623

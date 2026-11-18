@@ -1,0 +1,17 @@
+cnu_gate_odd_none rbx: mismatches: steps 24, c2v 42531, bias 0, VNU 21762 FAIL
+cnu_gate_odd_none rb3: mismatches: steps 24, c2v 45122, bias 0, VNU 22762 FAIL
+cnu_gate_sweep rbx: mismatches: steps 47, c2v 47330, bias 0, VNU 25599 FAIL
+cnu_gate_sweep rb3: mismatches: steps 47, c2v 64149, bias 0, VNU 33794 FAIL
+vnu_gate_none rbx: mismatches: steps 28, c2v 0, bias 0, VNU 23580 FAIL
+vnu_gate_none rb3: mismatches: steps 28, c2v 0, bias 0, VNU 23646 FAIL
+no_m_minus1 rbx: mismatches: steps 26, c2v 0, bias 27814, VNU 27472 FAIL
+no_m_minus1 rb3: mismatches: steps 39, c2v 0, bias 41699, VNU 41225 FAIL
+syn_stage rbx: mismatches: steps 2989, c2v 1092436, bias 0, VNU 758553 FAIL
+syn_stage rb3: mismatches: steps 2755, c2v 1428207, bias 0, VNU 982289 FAIL
+bias_prior_stage rbx: mismatches: steps 1149, c2v 0, bias 261067, VNU 192845 FAIL
+bias_prior_stage rb3: mismatches: steps 1059, c2v 0, bias 241126, VNU 181056 FAIL
+merge_no_group rbx: mismatches: steps 2510, c2v 89165, bias 0, VNU 54596 FAIL
+merge_no_group rb3: mismatches: steps 2563, c2v 134317, bias 0, VNU 86599 FAIL
+merge_local_parity rbx: mismatches: steps 2858, c2v 292634, bias 0, VNU 229027 FAIL
+merge_local_parity rb3: mismatches: steps 2543, c2v 380639, bias 0, VNU 284003 FAIL
+finished

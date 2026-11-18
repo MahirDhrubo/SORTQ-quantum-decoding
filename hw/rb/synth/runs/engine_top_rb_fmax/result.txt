@@ -1,0 +1,13 @@
+run engine_top_rb
+period 4.90
+wns -0.345
+start dut/u_rs/r_o1_reg[2][0][0]/C
+end dut/u_rs/g_cnu[63].g_grp[1].u_c/g_reg.min2_reg[0]/D
+logic_levels 11
+datapath_delay 5.227
+logic_delay 1.089
+net_delay 4.138
+route_status 0
+t_synth_s 1488
+t_opt_place_s 2484
+t_route_s 2348

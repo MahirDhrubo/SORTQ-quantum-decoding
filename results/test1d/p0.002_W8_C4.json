@@ -1,0 +1,16 @@
+{
+ "tag": "p0.002",
+ "setting": "W8_C4",
+ "W": 8,
+ "C": 4,
+ "rounds": 36,
+ "shots": 500000,
+ "windows": 9,
+ "fails": 68,
+ "ler": 0.000136,
+ "ler_per_round": 3.7782773733008312e-06,
+ "windows_not_converged": 34,
+ "shots_with_unconverged_window": 26,
+ "syndrome_mismatch_in_fully_converged_shots": 0,
+ "cpu_seconds": 11304.2190284729
+}

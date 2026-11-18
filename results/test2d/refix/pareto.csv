@@ -1,0 +1,14 @@
+design,k,passes,lut,lut_pct,clock,ns_13r,ns_w12,meets_13r_p0.001,meets_13r_p0.002,meets_13r_p0.003,meets_w12_p0.001,meets_w12_p0.002,meets_w12_p0.003
+IBM fully parallel (flood),flood,-,2100000.0,51.6,as published,24.0,,abcd,abcd,acd,n/a,n/a,n/a
+SORTQ pf2 P1,1,1,448213.0,11.0,138.1 MHz measured,188.2,173.8,abcd,ad,ad,n/a,ad,none
+SORTQ pf2 P1,2,1,749071.0,18.3,138.1 MHz assumed = k1,101.4,,abcd,acd,ad,n/a,n/a,n/a
+SORTQ pf2 P1,3,1,1049929.0,25.7,138.1 MHz assumed = k1,72.4,,abcd,acd,ad,n/a,n/a,n/a
+SORTQ pf2 P1,4,1,1350787.0,33.1,138.1 MHz assumed = k1,57.9,,abcd,acd,acd,n/a,n/a,n/a
+SORTQ pf2 P2,1,2,375741.0,9.2,130.7 MHz measured,298.4,275.4,abcd,ad,d,n/a,d,none
+SORTQ pf2 P2,2,2,588612.0,14.4,130.7 MHz assumed = k1,160.7,,abcd,ad,ad,n/a,n/a,n/a
+SORTQ pf2 P2,3,2,801483.0,19.6,130.7 MHz assumed = k1,114.8,,abcd,ad,ad,n/a,n/a,n/a
+SORTQ pf2 P2,4,2,1014354.0,24.8,130.7 MHz assumed = k1,91.8,,abcd,acd,ad,n/a,n/a,n/a
+SORTQ pf P1,1,1,444792.0,10.9,135.9 MHz measured,191.4,176.6,abcd,ad,ad,n/a,ad,none
+SORTQ pf P1,2,1,736757.0,18.0,135.9 MHz assumed = k1,103.0,,abcd,acd,ad,n/a,n/a,n/a
+SORTQ pf P1,3,1,1028722.0,25.2,135.9 MHz assumed = k1,73.6,,abcd,acd,ad,n/a,n/a,n/a
+SORTQ pf P1,4,1,1320687.0,32.3,135.9 MHz assumed = k1,58.9,,abcd,acd,ad,n/a,n/a,n/a

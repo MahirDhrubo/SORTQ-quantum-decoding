@@ -1,0 +1,76 @@
+%Warning-TIMESCALEMOD: ../../rtl/round_wiring_pkg.sv:3:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | package round_wiring_pkg;
+      |         ^~~~~~~~~~~~~~~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.054
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: ../rtl/rb_pkg.sv:3:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | package rb_pkg;
+      |         ^~~~~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: ../../rtl/round_wiring.sv:6:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    6 | module round_wiring
+      |        ^~~~~~~~~~~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: ../../rtl/cnu.sv:7:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    7 | module cnu #(
+      |        ^~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: ../../rtl/vnu_nosat.sv:9:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    9 | module vnu_nosat #(
+      |        ^~~~~~~~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: ../rtl/vnu_post_rb.sv:9:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    9 | module vnu_post_rb #(
+      |        ^~~~~~~~~~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: ../rtl/cnu_merge_rb.sv:9:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    9 | module cnu_merge_rb #(
+      |        ^~~~~~~~~~~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: ../rtl/round_step_rb.sv:20:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   20 | module round_step_rb
+      |        ^~~~~~~~~~~~~
+                       tb_round_step_rb.sv:8:8: ... Location of module with timescale
+    8 | module tb_round_step_rb;
+      |        ^~~~~~~~~~~~~~~~
+make: Entering directory '<path>'
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o <path>
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o <path>
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o <path>
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -c -x c++-header Vtb_round_step_rb__pch.h -o Vtb_round_step_rb__pch.h.fast.gch
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -c -x c++-header Vtb_round_step_rb__pch.h -o Vtb_round_step_rb__pch.h.slow.gch
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.fast -c Vtb_round_step_rb_vm_classes_0.cpp
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.fast -c Vtb_round_step_rb_vm_classes_1.cpp
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.fast -c Vtb_round_step_rb_vm_classes_2.cpp
+x86_64-conda-linux-gnu-c++ -Os  -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.fast -c Vtb_round_step_rb_vm_classes_3.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb_vm_classes_Slow_0.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb_vm_classes_Slow_1.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb_vm_classes_Slow_2.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb_vm_classes_Slow_3.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb__Syms__ctor__0__Slow.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb__Syms__ctor__1__Slow.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb__Syms__ctor__2__Slow.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb__Syms__dtor__0__Slow.cpp
+x86_64-conda-linux-gnu-c++   -I.  -MMD -I<path> -I<path> -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable  -DVM_PREFIX_INCLUDE="<Vtb_round_step_rb.h>"   -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_round_step_rb__pch.h.slow -c Vtb_round_step_rb__Syms__Slow.cpp
+x86_64-conda-linux-gnu-c++    verilated.o verilated_timing.o verilated_threads.o Vtb_round_step_rb__ALL.a    -pthread -lpthread -latomic   -o Vtb_round_step_rb
+rm Vtb_round_step_rb__ALL.verilator_deplist.tmp
+make: Leaving directory '<path>'
+- V e r i l a t i o n   R e p o r t: Verilator 5.054 2026-11-01 rev conda-forge build 
+- Verilator: Built from 2.045 MB sources in 11 modules, into 99.911 MB in 109 C++ files needing 0.002 MB
+- Verilator: Walltime 312.481 s (elab=2.413, cvt=36.148, bld=272.524); cpu 41.159 s on 4 threads; allocated 1288.965 MB
+build exit 0

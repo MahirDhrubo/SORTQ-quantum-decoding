@@ -1,0 +1,114 @@
+{
+ "set": "1d_p0.002_36r",
+ "shots": 500000,
+ "segments": [
+  {
+   "seed": 2000,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2001,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2002,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2003,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2004,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2005,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2006,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2007,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2008,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2009,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2010,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2011,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2012,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2013,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2014,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2015,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2016,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2017,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2018,
+   "calls": 1,
+   "call_size": 25000
+  },
+  {
+   "seed": 2019,
+   "calls": 1,
+   "call_size": 25000
+  }
+ ],
+ "circuit": "circuits/bb_ibm_rounds/circuit=bicycle_bivariate_144_12_12_memory_Z,distance=12,rounds=36,error_rate=0.002,noise_model=uniform_circuit,basis=CX,A=x^3+y+y^2,B=y^3+x+x^2.stim",
+ "circuit_sha256": "23522c5dd53881dc8a4c589505e752c599ed027e6fff27b8d98afd2e4b7056ca",
+ "stim_version": "1.16.0",
+ "num_detectors": 5184,
+ "num_observables": 12,
+ "bitorder": "little",
+ "seconds": 8.8,
+ "file_sha256": "b877902c6bc83e170f459c075d9c149f3c9e94190c94a7be1691be0b6d9f348f"
+}

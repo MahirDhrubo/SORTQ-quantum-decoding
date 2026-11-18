@@ -1,0 +1,139 @@
+{
+ "1d_p0.003_36r": {
+  "global": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 4,
+   "windows": 1
+  },
+  "W6_C3": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 5,
+   "windows": 12
+  },
+  "W8_C4": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 3,
+   "windows": 9
+  },
+  "W12_C8": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 4,
+   "windows": 5
+  }
+ },
+ "1d_p0.002_36r": {
+  "global": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 0,
+   "windows": 1
+  },
+  "W6_C3": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 1,
+   "windows": 12
+  },
+  "W8_C4": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 2,
+   "windows": 9
+  },
+  "W12_C8": {
+   "iterations": 0,
+   "window_converged": 0,
+   "logical_fail": 0,
+   "failures": 1,
+   "windows": 5
+  }
+ },
+ "2a_golden_seed20261113": {
+  "syn_bits_differ_vs_golden_syndromes": 0,
+  "int4.2.8 sweep": {
+   "iterations": 0,
+   "success": 0,
+   "decoding": 0,
+   "reference": "hw/golden/ref_int4.2.8_sweep.npz",
+   "iterations_of_golden_shots": {
+    "96": 97,
+    "106": 126,
+    "53": 580,
+    "5": 44,
+    "141": 188,
+    "1855": 338
+   }
+  },
+  "rb13 int4.2.8": {
+   "iterations": 0,
+   "success": 0,
+   "decoding": 0,
+   "reference": "hw/rb/golden/rb_relayvenv.npz",
+   "iterations_of_golden_shots": {
+    "96": 31,
+    "106": 41,
+    "53": 164,
+    "5": 91,
+    "141": 139,
+    "1855": 586
+   }
+  }
+ },
+ "lists": {
+  "3d_picks_seed20261114.json p0.003": {
+   "shots": 50,
+   "iterations_differ_vs_pick_file": 0,
+   "iterations_differ_vs_trace": 0
+  },
+  "3d_picks_seed20261114.json p0.002": {
+   "shots": 50,
+   "iterations_differ_vs_pick_file": 0,
+   "iterations_differ_vs_trace": 0
+  },
+  "3d_picks2_seed20261115.json p0.003": {
+   "shots": 500,
+   "iterations_differ_vs_pick_file": 0,
+   "iterations_differ_vs_trace": 0
+  },
+  "3d_picks2_seed20261115.json p0.002": {
+   "shots": 500,
+   "iterations_differ_vs_pick_file": 0,
+   "iterations_differ_vs_trace": 0
+  },
+  "2f_picks_rb_seed20261116.json p0.003": {
+   "shots": 250,
+   "iterations_differ_vs_pick_file": 0,
+   "iterations_differ_vs_trace": 0
+  },
+  "2f_picks_rb_seed20261116.json p0.002": {
+   "shots": 250,
+   "iterations_differ_vs_pick_file": 0,
+   "iterations_differ_vs_trace": 0
+  }
+ },
+ "3f_72_p0.003_seed20261111": {
+  "k1": {
+   "iterations": 0,
+   "success": 0,
+   "logical_fail": 0,
+   "failures": 36
+  },
+  "flood": {
+   "iterations": 0,
+   "success": 0,
+   "logical_fail": 0,
+   "failures": 33
+  }
+ }
+}

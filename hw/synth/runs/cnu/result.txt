@@ -1,0 +1,13 @@
+run cnu
+period 2.5
+wns -1.757
+start ich_reg[17]/C
+end dut/g_reg.out_mag_reg[18][2]/D
+logic_levels 19
+datapath_delay 4.240
+logic_delay 1.766
+net_delay 2.474
+route_status 0
+t_synth_s 47
+t_opt_place_s 252
+t_route_s 116

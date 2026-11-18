@@ -1,0 +1,65 @@
+{
+ "counts": {
+  "NPOS": 144,
+  "NT": 10,
+  "NHP": 7,
+  "NE0": 25,
+  "NE1": 10,
+  "NBASE": 35,
+  "NOBS": 12,
+  "W": 18
+ },
+ "state_bits_per_slot": {
+  "v2c_o0": 18000,
+  "c2v_o1": 7200,
+  "marg": 34272,
+  "g8": 7344
+ },
+ "state_bits_total": 1202688,
+ "round_step_lut": 598157.3594252407,
+ "calibration": 0.9714515023572611,
+ "round_step_parts": {
+  "cnu": 93865.529963768,
+  "vnu_cur": 300795.3886362317,
+  "vnu_prev": 202229.6680661671,
+  "glue": 1266.7727590738684
+ },
+ "shared_lut": {
+  "memories": 225961.56235130364,
+  "gamma_lanes": 99245.42838382251,
+  "conv_check": 58394.92125819732,
+  "commit": 7350.002066835037,
+  "ctrl": 890.8210276616084,
+  "glue": 160.2894978889481
+ },
+ "engine_lut": 990160.3840109498,
+ "engine_lut_pct": 24.23442355916524,
+ "engine_lutram": 57288.0,
+ "vnu_updates_per_step": 2448,
+ "cnus_per_step": 144,
+ "fully_parallel": {
+  "checks": {
+   "16": 144,
+   "25": 144,
+   "35": 2448
+  },
+  "errors": {
+   "2": 2592,
+   "3": 15840,
+   "4": 2592,
+   "5": 2592,
+   "6": 2592
+  },
+  "cnu_lut": 2113056.0,
+  "vnu_lut": 6020352.0,
+  "lut": 8133408.0,
+  "lut_pct": 199.0671992481203,
+  "lut_in_context": 7376355.714601281,
+  "gamma_lane_per_error_lut": 1859348.4
+ },
+ "ratio_parallel_over_engine": 8.214232897354593,
+ "extrapolated": {
+  "cnu_degrees_outside_measured": [],
+  "vnu_degrees_outside_measured": []
+ }
+}

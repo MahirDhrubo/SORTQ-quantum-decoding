@@ -1,0 +1,809 @@
+diff --git a/crates/relay_bp/src/bp/min_sum.rs b/crates/relay_bp/src/bp/min_sum.rs
+index 4a02285..31e0bae 100644
+--- a/crates/relay_bp/src/bp/min_sum.rs
++++ b/crates/relay_bp/src/bp/min_sum.rs
+@@ -41,6 +41,148 @@ pub struct MinSumDecoderConfig {
+     /// The floor is scaled by `data_scale_value` and is at least one LSB. Without it, priors of
+     /// exactly 1/2 that form a stopping set receive no syndrome information.
+     pub min_log_prior_ratio: Option<f64>,
++    /// MODIFIED (SORTQ, 2026-11-11): optional layer id per check (row). When set, each iteration
++    /// sweeps the layers in increasing id order: compute check-to-variable messages for the checks of
++    /// the layer, then recompute the posterior and variable-to-check messages of every variable touching
++    /// them (fresh values for later layers). The memory term uses the posteriors from the end of the
++    /// previous iteration, so memory advances once per iteration as in flooding. None = flooding.
++    pub check_layers: Option<Arc<Vec<usize>>>,
++    /// MODIFIED (SORTQ, 2026-11-12): optional integer emulation. Every computed value (priors,
++    /// check-to-variable and variable-to-check messages, Mem-BP bias, marginals) is rounded and saturated
++    /// to integers; with N = f32 these small integers are exact, so the arithmetic is bit-exact integer
++    /// arithmetic. None = original float behaviour (unchanged).
++    pub quant: Option<QuantFormat>,
++}
++
++/// MODIFIED (SORTQ): integer format "intN.S.M".
++/// Messages: sign + N bits, saturating to +/- msg_max. Priors: round(S * ln((1-p)/p)), saturated to messages.
++/// Memory: gamma rounded to the grid 1/M; bias = round(((M - g) * L0 + g * Mpost) / M), saturated to marginals.
++/// Marginals: two's complement, [marg_min, marg_max], saturating. round(x) = floor(x + 1/2) (half up).
++#[derive(Clone, Copy, Debug, PartialEq)]
++pub struct QuantFormat {
++    pub scale: f64,
++    pub msg_max: f64,
++    pub marg_min: f64,
++    pub marg_max: f64,
++    pub gamma_den: f64,
++}
++
++impl QuantFormat {
++    /// "none" -> None; "int4.2.8"; "int6.4.8"; "wide" (16-bit messages, S = 64, 20-bit marginals, M = 65536).
++    /// For intN.S.M the marginal width is N + 3 bits (two's complement).
++    pub fn parse(name: &str) -> Option<QuantFormat> {
++        match name {
++            "none" | "" => None,
++            "wide" => Some(QuantFormat {
++                scale: 64.,
++                msg_max: 32767.,
++                marg_min: -524288.,
++                marg_max: 524287.,
++                gamma_den: 65536.,
++            }),
++            _ => {
++                let parts: Vec<&str> = name
++                    .strip_prefix("int")
++                    .unwrap_or_else(|| panic!("unknown quant format {name}"))
++                    .split('.')
++                    .collect();
++                assert_eq!(parts.len(), 3, "quant format must be intN.S.M, got {name}");
++                let n: i32 = parts[0].parse().expect("N");
++                let s: f64 = parts[1].parse().expect("S");
++                let m: f64 = parts[2].parse().expect("M");
++                let mb = n + 3; // marginal bits incl. sign
++                Some(QuantFormat {
++                    scale: s,
++                    msg_max: (2f64.powi(n)) - 1.,
++                    marg_min: -(2f64.powi(mb - 1)),
++                    marg_max: 2f64.powi(mb - 1) - 1.,
++                    gamma_den: m,
++                })
++            }
++        }
++    }
++    #[inline]
++    pub fn round(x: f64) -> f64 {
++        (x + 0.5).floor()
++    }
++    /// Saturate to the message range; returns (value, clipped).
++    #[inline]
++    pub fn sat_msg(&self, x: f64) -> (f64, bool) {
++        if x > self.msg_max {
++            (self.msg_max, true)
++        } else if x < -self.msg_max {
++            (-self.msg_max, true)
++        } else {
++            (x, false)
++        }
++    }
++    /// Saturate to the marginal range; returns (value, clipped).
++    #[inline]
++    pub fn sat_marg(&self, x: f64) -> (f64, bool) {
++        if x > self.marg_max {
++            (self.marg_max, true)
++        } else if x < self.marg_min {
++            (self.marg_min, true)
++        } else {
++            (x, false)
++        }
++    }
++}
++
++/// MODIFIED (SORTQ): saturation counters for the quantized mode, accumulated over one decode
++/// (all relay legs): [c2v updates, c2v clipped, v2c updates, v2c clipped, marginal updates, marginal clipped,
++/// bias updates, bias clipped]. "clipped" = the exact value was outside the range before saturation.
++pub type QuantCounts = [u64; 8];
++
++/// MODIFIED (SORTQ, Test 2a): optional binary dump of the integer decoder state, for RTL golden vectors.
++/// Enabled only when the environment variable RELAY_DUMP=<path> is set when the decoder is built; it only writes
++/// a file and never changes any value. RELAY_DUMP_LEGS (default 2) limits the dump to the first legs.
++/// Records (little-endian):
++///   'L' u32 leg, u32 ncols, i8 g8[ncols], i8 marginal_at_leg_start[ncols]
++///   'C' u32 leg, u32 iter, u32 layer, u32 row, u8 syndrome, u8 deg,
++///       deg x {u32 col, i8 v2c_in, u8 v2c_in_is_negative, u8 c2v_out_sign, u8 c2v_out_mag}
++///   'V' u32 leg, u32 iter, u32 layer, u32 col, i8 prior, i8 g8, i8 mem_post, i8 bias, u8 deg,
++///       deg x {u32 row, i8 c2v_in, u8 c2v_in_signbit, i8 v2c_out}, i8 marginal, u8 hard_decision
++///   'I' u32 leg, u32 iter, u8 converged, u32 ncols, u8 hard_decision[ncols]
++/// iter = 0-based iteration within the leg; layer = check layer (round) index.
++pub struct DumpState {
++    w: std::io::BufWriter<std::fs::File>,
++    legs_max: usize,
++    leg: usize,
++    iter: usize,
++    layer: usize,
++}
++
++impl DumpState {
++    fn from_env() -> Option<std::sync::Arc<std::sync::Mutex<DumpState>>> {
++        let path = std::env::var("RELAY_DUMP").ok()?;
++        let legs_max = std::env::var("RELAY_DUMP_LEGS").ok().and_then(|s| s.parse().ok()).unwrap_or(2);
++        let f = std::fs::File::create(&path).unwrap_or_else(|e| panic!("RELAY_DUMP {path}: {e}"));
++        Some(std::sync::Arc::new(std::sync::Mutex::new(DumpState {
++            w: std::io::BufWriter::new(f),
++            legs_max,
++            leg: 0,
++            iter: 0,
++            layer: 0,
++        })))
++    }
++    fn active(&self) -> bool {
++        self.leg < self.legs_max
++    }
++    fn put(&mut self, b: &[u8]) {
++        use std::io::Write;
++        self.w.write_all(b).expect("dump write");
++    }
++    fn u8(&mut self, x: u8) {
++        self.put(&[x]);
++    }
++    fn i8(&mut self, x: f64) {
++        assert!(x == x.round() && (-128.0..=127.0).contains(&x), "dump: value {x} is not an i8 integer");
++        self.put(&[(x as i8) as u8]);
++    }
++    fn u32(&mut self, x: usize) {
++        self.put(&(x as u32).to_le_bytes());
++    }
+ }
+ 
+ impl Default for MinSumDecoderConfig {
+@@ -56,6 +198,8 @@ impl Default for MinSumDecoderConfig {
+             int_bits: None,
+             frac_bits: None,
+             min_log_prior_ratio: None,
++            check_layers: None,
++            quant: None,
+         }
+     }
+ }
+@@ -101,6 +245,15 @@ pub struct MinSumBPDecoder<N: PartialEq + Default + Clone + Copy> {
+     data_scale_value: Option<N>,
+     min_log_prior_ratio: Option<N>,
+     pub current_iteration: usize,
++    // MODIFIED: layered (round-sweep) schedule state
++    layer_checks: Vec<Vec<usize>>,
++    layer_vars: Vec<Vec<usize>>,
++    memory_posterior: Array1<N>,
++    // MODIFIED: integer emulation (None = float) and its saturation counters
++    quant: Option<QuantFormat>,
++    pub quant_counts: QuantCounts,
++    // MODIFIED (Test 2a): optional state dump (RELAY_DUMP), write-only
++    dump: Option<Arc<std::sync::Mutex<DumpState>>>,
+ }
+ 
+ impl<N> MinSumBPDecoder<N>
+@@ -129,6 +282,11 @@ where
+         check_matrix: Arc<SparseBitMatrix>,
+         config: Arc<MinSumDecoderConfig>,
+     ) -> MinSumBPDecoder<N> {
++        if config.quant.is_some() {
++            assert!(config.alpha.is_none(), "quant mode implements alpha = 1 only (alpha=None)");
++            assert!(config.data_scale_value.is_none() && config.max_data_value.is_none(),
++                    "quant mode replaces data_scale_value / max_data_value");
++        }
+         let check_to_variable = MinSumBPDecoder::build_check_to_variable(check_matrix.clone());
+         let variable_to_check = MinSumBPDecoder::build_variable_to_check(check_matrix.clone());
+         let (check_to_variable_nnz_map, variable_to_check_nnz_map) =
+@@ -181,6 +339,14 @@ where
+             }
+         });
+ 
++        // MODIFIED: integer priors round(S * llr), saturated to the message range
++        let log_prior_ratios = match config.quant {
++            None => log_prior_ratios,
++            Some(q) => config.log_prior_ratios().mapv_into_any(|val| {
++                N::from_f64(q.sat_msg(QuantFormat::round(q.scale * val)).0).unwrap()
++            }),
++        };
++
+         let memory_strengths = Array1::from_elem(check_matrix.cols(), N::zero());
+ 
+         let posterior_ratios = if config.gamma0.is_some() {
+@@ -191,6 +357,35 @@ where
+ 
+         let decoding = Array1::zeros(check_matrix.cols());
+ 
++        // MODIFIED: build the per-layer check and variable lists
++        let (layer_checks, layer_vars) = match &config.check_layers {
++            None => (Vec::new(), Vec::new()),
++            Some(layers) => {
++                assert_eq!(layers.len(), check_matrix.rows(), "check_layers needs one id per check");
++                let n_layers = layers.iter().max().map(|m| m + 1).unwrap_or(0);
++                let mut lc: Vec<Vec<usize>> = vec![Vec::new(); n_layers];
++                for (row, l) in layers.iter().enumerate() {
++                    lc[*l].push(row);
++                }
++                let csr = check_matrix.to_csr();
++                let mut lv: Vec<Vec<usize>> = vec![Vec::new(); n_layers];
++                for l in 0..n_layers {
++                    let mut seen = std::collections::BTreeSet::new();
++                    for &row in &lc[l] {
++                        if let Some(r) = csr.outer_view(row) {
++                            for (col, _) in r.iter() {
++                                seen.insert(col);
++                            }
++                        }
++                    }
++                    lv[l] = seen.into_iter().collect();
++                }
++                (lc, lv)
++            }
++        };
++        let memory_posterior = posterior_ratios.clone();
++        let quant = config.quant;
++
+         MinSumBPDecoder::<N> {
+             check_matrix,
+             config,
+@@ -206,9 +401,53 @@ where
+             data_scale_value,
+             min_log_prior_ratio,
+             current_iteration: 0,
++            layer_checks,
++            layer_vars,
++            memory_posterior,
++            quant,
++            quant_counts: [0; 8],
++            dump: DumpState::from_env(),
+         }
+     }
+ 
++    /// MODIFIED (Test 2a): dump hooks. All read-only on the decoder state.
++    pub fn dump_leg_start(&mut self, leg: usize) {
++        let Some(d) = self.dump.clone() else { return };
++        let mut d = d.lock().unwrap();
++        d.leg = leg;
++        if !d.active() {
++            return;
++        }
++        d.u8(b'L');
++        d.u32(leg);
++        d.u32(self.memory_strengths.len());
++        for v in self.memory_strengths.iter() {
++            d.i8(v.to_f64().unwrap());
++        }
++        for v in self.posterior_ratios.iter() {
++            d.i8(v.to_f64().unwrap());
++        }
++    }
++
++    pub fn dump_iter_end(&mut self, converged: bool) {
++        let Some(d) = self.dump.clone() else { return };
++        let mut d = d.lock().unwrap();
++        if !d.active() {
++            return;
++        }
++        let (leg, it) = (d.leg, d.iter);
++        d.u8(b'I');
++        d.u32(leg);
++        d.u32(it);
++        d.u8(converged as u8);
++        d.u32(self.decoding.len());
++        for b in self.decoding.iter() {
++            d.u8(*b as u8);
++        }
++        use std::io::Write;
++        d.w.flush().expect("dump flush");
++    }
++
+     pub fn set_log_prior_ratio(&mut self, mut log_prior_ratios: Array1<N>) {
+         let min_val = self.min_log_prior_ratio;
+         log_prior_ratios.iter_mut().for_each(|v| {
+@@ -237,6 +476,12 @@ where
+ 
+     /// Set external memory strengths from f64. Applies scaling if needed.
+     pub fn set_memory_strengths_f64(&mut self, memory_strengths: Array1<f64>) {
++        if let Some(q) = self.quant {
++            // MODIFIED: integer memory strength g = round(M * gamma)
++            self.memory_strengths = memory_strengths
++                .mapv_into_any(|v| N::from_f64(QuantFormat::round(q.gamma_den * v)).unwrap());
++            return;
++        }
+         self.memory_strengths = match self.config.data_scale_value {
+             Some(scale_val) => {
+                 memory_strengths.mapv_into_any(|v| N::from_f64(scale_val * v).unwrap())
+@@ -319,9 +564,11 @@ where
+     pub fn initialize_memory_strengths(&mut self) {
+         // Initialize Mem-BP and posteriors
+         let ewa_factor_float = self.config.gamma0.unwrap_or(0.);
+-        let ewa_factor = N::from_f64(match self.config.data_scale_value {
+-            Some(scale_value) => scale_value * ewa_factor_float,
+-            None => ewa_factor_float,
++        let ewa_factor = N::from_f64(match (self.quant, self.config.data_scale_value) {
++            // MODIFIED: integer memory strength g = round(M * gamma0)
++            (Some(q), _) => QuantFormat::round(q.gamma_den * ewa_factor_float),
++            (None, Some(scale_value)) => scale_value * ewa_factor_float,
++            (None, None) => ewa_factor_float,
+         })
+         .unwrap();
+         self.memory_strengths.fill(ewa_factor);
+@@ -329,6 +576,7 @@ where
+ 
+     pub fn initialize_decoder(&mut self) {
+         self.current_iteration = 0;
++        self.quant_counts = [0; 8];
+         self.initialize_memory_strengths();
+         self.initialize_check_to_variable();
+         self.initialize_variable_to_check();
+@@ -484,6 +732,15 @@ where
+                 out_min /= scale_val;
+                 out_second_min /= scale_val;
+             }
++            // MODIFIED: integer mode, saturate the two outgoing magnitudes (alpha = 1 required)
++            let mut sat_hits = [false; 2];
++            if let Some(q) = self.quant {
++                let (a, ca) = q.sat_msg(out_min.to_f64().unwrap());
++                let (b, cb) = q.sat_msg(out_second_min.to_f64().unwrap());
++                out_min = N::from_f64(a).unwrap();
++                out_second_min = N::from_f64(b).unwrap();
++                sat_hits = [ca, cb];
++            }
+ 
+             // Write the messages. The minimum's position is found by
+             // value instead of by index: an incoming message whose magnitude
+@@ -492,11 +749,16 @@ where
+             // same value the index-tracking version produced.
+             for (map_ind, msg) in izip!(row_nnz_map, messages) {
+                 let check_to_variable_sign = accumulated_sign ^ msg.is_negative();
+-                let mut check_to_variable = if msg.abs() == min_message {
++                let is_min = msg.abs() == min_message;
++                let mut check_to_variable = if is_min {
+                     out_second_min
+                 } else {
+                     out_min
+                 };
++                if self.quant.is_some() {
++                    self.quant_counts[0] += 1;
++                    self.quant_counts[1] += (if is_min { sat_hits[1] } else { sat_hits[0] }) as u64;
++                }
+                 if check_to_variable_sign {
+                     check_to_variable = check_to_variable.neg();
+                 }
+@@ -510,6 +772,21 @@ where
+         &mut self.check_to_variable
+     }
+ 
++    /// MODIFIED: integer Mem-BP bias round(((M - g) * L0 + g * Mpost) / M), saturated to the marginal range.
++    /// Returns (bias, clipped).
++    #[inline]
++    fn quant_bias(&self, q: &QuantFormat, variable: usize, mem_post: N) -> (N, bool) {
++        let l0 = self.log_prior_ratios[variable].to_f64().unwrap();
++        if self.config.gamma0.is_none() {
++            return (self.log_prior_ratios[variable], false);
++        }
++        let g = self.memory_strengths[variable].to_f64().unwrap();
++        let mp = mem_post.to_f64().unwrap();
++        let x = QuantFormat::round(((q.gamma_den - g) * l0 + g * mp) / q.gamma_den);
++        let (v, c) = q.sat_marg(x);
++        (N::from_f64(v).unwrap(), c)
++    }
++
+     fn compute_variable_prior(&self, variable: usize) -> N {
+         // Apply membp
+         if self.config.gamma0.is_some() {
+@@ -529,11 +806,21 @@ where
+ 
+     /// Compute bit to check message iteration
+     fn compute_variable_to_check(&mut self) -> &mut SparseBipartiteGraph<N> {
++        let mut bias_counts = [0u64; 2];
+         for (check_var_col_ind, check_var_col_vec) in
+             self.check_to_variable.outer_iterator().enumerate()
+         {
+             // Accumulate messages
+-            let mut check_to_var_row_sum = self.compute_variable_prior(check_var_col_ind);
++            let mut check_to_var_row_sum = match self.quant {
++                None => self.compute_variable_prior(check_var_col_ind),
++                Some(q) => {
++                    // MODIFIED: integer bias
++                    let (b, c) = self.quant_bias(&q, check_var_col_ind, self.posterior_ratios[check_var_col_ind]);
++                    bias_counts[0] += 1;
++                    bias_counts[1] += c as u64;
++                    b
++                }
++            };
+ 
+             debug!("Check messages for col {check_var_col_ind:?}: {check_var_col_vec:?}");
+ 
+@@ -578,13 +865,47 @@ where
+             }
+         }
+ 
++        // MODIFIED: integer mode, saturate every v2c message and marginal computed above. Nothing in the
++        // loop reads another variable's new values, so saturating afterwards equals saturating in place.
++        if let Some(q) = self.quant {
++            self.quant_counts[6] += bias_counts[0];
++            self.quant_counts[7] += bias_counts[1];
++            self.quant_saturate_all(&q);
++        }
++
+         self.bound_magnitudes();
+ 
+         &mut self.variable_to_check
+     }
+ 
++    /// MODIFIED: saturate all v2c messages and marginals (integer mode), counting clips.
++    fn quant_saturate_all(&mut self, q: &QuantFormat) {
++        let (mut nm, mut cm, mut np, mut cp) = (0u64, 0u64, 0u64, 0u64);
++        for v in self.variable_to_check.data_mut().iter_mut() {
++            let (s, c) = q.sat_msg(v.to_f64().unwrap());
++            *v = N::from_f64(s).unwrap();
++            nm += 1;
++            cm += c as u64;
++        }
++        for v in self.posterior_ratios.iter_mut() {
++            let (s, c) = q.sat_marg(v.to_f64().unwrap());
++            *v = N::from_f64(s).unwrap();
++            np += 1;
++            cp += c as u64;
++        }
++        self.quant_counts[2] += nm;
++        self.quant_counts[3] += cm;
++        self.quant_counts[4] += np;
++        self.quant_counts[5] += cp;
++    }
++
+     pub fn run_iteration(&mut self, detectors: ArrayView1<Bit>) {
+         debug!("Iteration {:?} start", self.current_iteration);
++        if self.config.check_layers.is_some() {
++            self.run_layered_iteration(detectors);
++            self.compute_hard_decision();
++            return;
++        }
+         self.compute_check_to_variable(detectors);
+         // Now compute variable to check messages
+         self.compute_variable_to_check();
+@@ -593,6 +914,198 @@ where
+         debug!("Iteration {:?} end", self.current_iteration);
+     }
+ 
++    // ---------------------------------------------------------------- MODIFIED: layered schedule
++    fn run_layered_iteration(&mut self, detectors: ArrayView1<Bit>) {
++        // Memory term: posteriors from the end of the previous iteration
++        self.memory_posterior.assign(&self.posterior_ratios);
++        let alpha = self.alpha();
++        let layer_checks = std::mem::take(&mut self.layer_checks);
++        let layer_vars = std::mem::take(&mut self.layer_vars);
++        for (li, (checks, vars)) in layer_checks.iter().zip(layer_vars.iter()).enumerate() {
++            if let Some(d) = &self.dump {
++                let mut d = d.lock().unwrap();
++                d.iter = self.current_iteration;
++                d.layer = li;
++            }
++            for &row in checks {
++                self.compute_check_row(row, detectors, alpha);
++            }
++            for &col in vars {
++                self.compute_variable_col(col);
++            }
++        }
++        self.layer_checks = layer_checks;
++        self.layer_vars = layer_vars;
++        self.bound_magnitudes();
++    }
++
++    /// Same arithmetic as compute_check_to_variable, for one check.
++    fn compute_check_row(&mut self, row: usize, detectors: ArrayView1<Bit>, alpha: N) {
++        let scale = self.data_scale_value;
++        let data_range = self.variable_to_check.indptr().outer_inds(row);
++        let messages = &self.variable_to_check.data()[data_range.clone()];
++        if messages.is_empty() {
++            return;
++        }
++        let row_nnz_map = &self.variable_to_check_nnz_map[data_range.clone()];
++        let c2v = self.check_to_variable.data_mut();
++        let mut accumulated_sign = detectors[row] == 1;
++        for msg in messages {
++            accumulated_sign ^= msg.is_negative();
++        }
++        let (min_message, second_min_message) = Self::min_two_magnitudes(messages);
++        let mut out_min = alpha * min_message;
++        let mut out_second_min = alpha * second_min_message;
++        if let Some(scale_val) = scale {
++            out_min /= scale_val;
++            out_second_min /= scale_val;
++        }
++        // MODIFIED: integer mode, saturate the two outgoing magnitudes (alpha = 1 required)
++        let mut sat_hits = [false; 2];
++        if let Some(q) = self.quant {
++            let (a, ca) = q.sat_msg(out_min.to_f64().unwrap());
++            let (b, cb) = q.sat_msg(out_second_min.to_f64().unwrap());
++            out_min = N::from_f64(a).unwrap();
++            out_second_min = N::from_f64(b).unwrap();
++            sat_hits = [ca, cb];
++        }
++        for (map_ind, msg) in izip!(row_nnz_map, messages) {
++            let sign = accumulated_sign ^ msg.is_negative();
++            let is_min = msg.abs() == min_message;
++            if self.quant.is_some() {
++                self.quant_counts[0] += 1;
++                self.quant_counts[1] += (if is_min { sat_hits[1] } else { sat_hits[0] }) as u64;
++            }
++            let mut v = if is_min { out_second_min } else { out_min };
++            if sign {
++                v = v.neg();
++            }
++            c2v[*map_ind] = v;
++        }
++        // MODIFIED (Test 2a): dump this check's inputs and outputs (read-only)
++        if let Some(d) = self.dump.clone() {
++            let mut d = d.lock().unwrap();
++            if d.active() {
++                let (leg, it, layer) = (d.leg, d.iter, d.layer);
++                let cols = &self.variable_to_check.indices()[data_range.clone()];
++                let msgs = &self.variable_to_check.data()[data_range.clone()];
++                let c2v = self.check_to_variable.data();
++                d.u8(b'C');
++                d.u32(leg);
++                d.u32(it);
++                d.u32(layer);
++                d.u32(row);
++                d.u8(detectors[row] as u8);
++                d.u8(msgs.len() as u8);
++                for ((col, msg), map_ind) in cols.iter().zip(msgs.iter()).zip(row_nnz_map.iter()) {
++                    let out = c2v[*map_ind].to_f64().unwrap();
++                    d.u32(*col);
++                    d.i8(msg.to_f64().unwrap());
++                    d.u8(msg.is_negative() as u8);
++                    d.u8(out.is_sign_negative() as u8);
++                    d.i8(out.abs());
++                }
++            }
++        }
++    }
++
++    /// Same arithmetic as compute_variable_to_check, for one variable, with the memory term taken from
++    /// memory_posterior.
++    fn compute_variable_col(&mut self, col: usize) {
++        if let Some(q) = self.quant {
++            return self.compute_variable_col_quant(&q, col);
++        }
++        let prior = if self.config.gamma0.is_some() {
++            if self.log_prior_ratios[col] == N::max_value() {
++                self.log_prior_ratios[col]
++            } else {
++                let scaled_one = self.data_scale_value.unwrap_or(N::one());
++                (self.log_prior_ratios[col] / scaled_one) * (scaled_one - self.memory_strengths[col])
++                    + (self.memory_posterior[col] / scaled_one) * self.memory_strengths[col]
++            }
++        } else {
++            self.log_prior_ratios[col]
++        };
++        let data_range = self.check_to_variable.indptr().outer_inds(col);
++        let mut sum = prior;
++        for ind in data_range.clone() {
++            let m = self.check_to_variable_nnz_map[ind];
++            self.variable_to_check.data_mut()[m] = sum;
++            sum += self.check_to_variable.data()[ind];
++        }
++        self.posterior_ratios[col] = sum;
++        let mut acc = N::zero();
++        for ind in data_range.rev() {
++            let m = self.check_to_variable_nnz_map[ind];
++            self.variable_to_check.data_mut()[m] += acc;
++            acc += self.check_to_variable.data()[ind];
++        }
++    }
++
++    /// MODIFIED: integer version of compute_variable_col. Bias from memory_posterior (end of the previous
++    /// iteration); v2c messages and the marginal computed exactly, then saturated.
++    fn compute_variable_col_quant(&mut self, q: &QuantFormat, col: usize) {
++        let (prior, bias_clip) = self.quant_bias(q, col, self.memory_posterior[col]);
++        self.quant_counts[6] += 1;
++        self.quant_counts[7] += bias_clip as u64;
++        let data_range = self.check_to_variable.indptr().outer_inds(col);
++        let mut sum = prior;
++        for ind in data_range.clone() {
++            let m = self.check_to_variable_nnz_map[ind];
++            self.variable_to_check.data_mut()[m] = sum;
++            sum += self.check_to_variable.data()[ind];
++        }
++        let (pm, pc) = q.sat_marg(sum.to_f64().unwrap());
++        self.posterior_ratios[col] = N::from_f64(pm).unwrap();
++        self.quant_counts[4] += 1;
++        self.quant_counts[5] += pc as u64;
++        let mut acc = N::zero();
++        for ind in data_range.clone().rev() {
++            let m = self.check_to_variable_nnz_map[ind];
++            let exact = self.variable_to_check.data()[m] + acc;
++            let (v, c) = q.sat_msg(exact.to_f64().unwrap());
++            self.variable_to_check.data_mut()[m] = N::from_f64(v).unwrap();
++            self.quant_counts[2] += 1;
++            self.quant_counts[3] += c as u64;
++            acc += self.check_to_variable.data()[ind];
++        }
++        // MODIFIED (Test 2a): dump this variable's inputs and outputs (read-only)
++        if let Some(d) = self.dump.clone() {
++            let mut d = d.lock().unwrap();
++            if d.active() {
++                let (leg, it, layer) = (d.leg, d.iter, d.layer);
++                d.u8(b'V');
++                d.u32(leg);
++                d.u32(it);
++                d.u32(layer);
++                d.u32(col);
++                d.i8(self.log_prior_ratios[col].to_f64().unwrap());
++                d.i8(self.memory_strengths[col].to_f64().unwrap());
++                d.i8(self.memory_posterior[col].to_f64().unwrap());
++                d.i8(prior.to_f64().unwrap());
++                d.u8(data_range.len() as u8);
++                for ind in data_range.clone() {
++                    let c = self.check_to_variable.data()[ind].to_f64().unwrap();
++                    d.u32(self.check_to_variable.indices()[ind]);
++                    d.i8(c);
++                    d.u8(c.is_sign_negative() as u8);
++                    d.i8(self.variable_to_check.data()[self.check_to_variable_nnz_map[ind]].to_f64().unwrap());
++                }
++                let mg = self.posterior_ratios[col];
++                d.i8(mg.to_f64().unwrap());
++                d.u8((mg <= N::zero()) as u8);
++            }
++        }
++    }
++
++    /// MODIFIED: saturation counters as a result extra (integer mode only).
++    pub fn quant_extra(&self) -> BPExtraResult {
++        match self.quant {
++            Some(_) => BPExtraResult::QuantCounts(self.quant_counts),
++            None => BPExtraResult::None,
++        }
++    }
++
+     pub fn build_result(
+         &mut self,
+         success: bool,
+@@ -617,7 +1130,7 @@ where
+             },
+             iterations: self.current_iteration,
+             max_iter,
+-            extra: BPExtraResult::None,
++            extra: self.quant_extra(),
+         }
+     }
+     fn bound_magnitudes(&mut self) {
+diff --git a/crates/relay_bp/src/bp/relay.rs b/crates/relay_bp/src/bp/relay.rs
+index 2542df7..426bf8e 100644
+--- a/crates/relay_bp/src/bp/relay.rs
++++ b/crates/relay_bp/src/bp/relay.rs
+@@ -213,6 +213,7 @@ where
+             success = self
+                 .bp_decoder
+                 .check_convergence(detectors, decoded_detectors.view());
++            self.bp_decoder.dump_iter_end(success); // MODIFIED (Test 2a): no-op unless RELAY_DUMP is set
+ 
+             // If we have converged may now exit
+             if success {
+@@ -295,6 +296,7 @@ where
+ 
+         // First Mem-BP
+         self.bp_decoder.initialize_decoder();
++        self.bp_decoder.dump_leg_start(0); // MODIFIED (Test 2a): no-op unless RELAY_DUMP is set
+         let mut result = self.decode_inner(detectors, self.relay_config.pre_iter);
+         self.num_executed_sets = 1;
+ 
+@@ -331,6 +333,7 @@ where
+                         .unwrap();
+                     self.write_log(file);
+                 }
++                result.extra = self.bp_decoder.quant_extra(); // MODIFIED: counters over the whole decode
+                 return result;
+             }
+         }
+@@ -344,6 +347,7 @@ where
+             self.bp_decoder.current_iteration = 0;
+             self.bp_decoder.initialize_check_to_variable();
+             self.bp_decoder.initialize_variable_to_check();
++            self.bp_decoder.dump_leg_start(set); // MODIFIED (Test 2a): no-op unless RELAY_DUMP is set
+             let temp_result = self.decode_inner(detectors, self.relay_config.set_max_iter);
+ 
+             self.num_executed_sets += 1;
+@@ -375,6 +379,7 @@ where
+             }
+         }
+         result.iterations = total_iterations;
++        result.extra = self.bp_decoder.quant_extra(); // MODIFIED: counters over all legs
+ 
+         // Rest of the function is just logging
+         if self.relay_config.logging {
+diff --git a/crates/relay_bp/src/decoder.rs b/crates/relay_bp/src/decoder.rs
+index e2c576f..427e994 100644
+--- a/crates/relay_bp/src/decoder.rs
++++ b/crates/relay_bp/src/decoder.rs
+@@ -218,4 +218,6 @@ pub struct DecodeResult {
+ #[derive(Serialize, Deserialize, Debug, Clone)]
+ pub enum BPExtraResult {
+     None,
++    /// MODIFIED (SORTQ): saturation counters of the integer mode, see min_sum::QuantCounts.
++    QuantCounts([u64; 8]),
+ }
+diff --git a/crates/relay_bp_py/src/bp/min_sum.rs b/crates/relay_bp_py/src/bp/min_sum.rs
+index 6c4081a..c95a884 100644
+--- a/crates/relay_bp_py/src/bp/min_sum.rs
++++ b/crates/relay_bp_py/src/bp/min_sum.rs
+@@ -55,6 +55,8 @@ macro_rules! create_bp_interface {
+                     int_bits,
+                     frac_bits,
+                     min_log_prior_ratio,
++                    check_layers: None,
++                    quant: None,
+                 };
+ 
+ 
+diff --git a/crates/relay_bp_py/src/bp/min_sum_fixed.rs b/crates/relay_bp_py/src/bp/min_sum_fixed.rs
+index 3e36ff4..6dea442 100644
+--- a/crates/relay_bp_py/src/bp/min_sum_fixed.rs
++++ b/crates/relay_bp_py/src/bp/min_sum_fixed.rs
+@@ -54,6 +54,8 @@ impl MinSumBPDecoderFixed {
+             int_bits,
+             frac_bits,
+             min_log_prior_ratio,
++            check_layers: None,
++                    quant: None,
+         };
+ 
+         let inner_decoder = MinSumBPDecoderFixedInner::new(
+diff --git a/crates/relay_bp_py/src/bp/relay.rs b/crates/relay_bp_py/src/bp/relay.rs
+index a17e98a..9b2fdcb 100644
+--- a/crates/relay_bp_py/src/bp/relay.rs
++++ b/crates/relay_bp_py/src/bp/relay.rs
+@@ -13,7 +13,7 @@ use pyo3::prelude::*;
+ 
+ use crate::decoder::{get_sprs_bit_matrix_from_python, DecodeResult, DynDecoder};
+ use numpy::{IntoPyArray, PyArray1, PyArray2, PyArrayMethods, PyReadonlyArray1, PyReadonlyArray2};
+-use relay_bp::bp::min_sum::MinSumDecoderConfig;
++use relay_bp::bp::min_sum::{MinSumDecoderConfig, QuantFormat};
+ use relay_bp::bp::relay::{RelayDecoder, RelayDecoderConfig, StoppingCriterion};
+ use relay_bp::decoder::Bit;
+ 
+@@ -28,7 +28,7 @@ macro_rules! create_bp_interface {
+             #[new]
+             #[pyo3(signature = (check_matrix, error_priors, alpha=None, alpha_iteration_scaling_factor=1.0, gamma0=0.1, data_scale_value=None, max_data_value=None, pre_iter=80, num_sets=300,
+                 set_max_iter=60, gamma_dist_interval=(-0.24, 0.66), explicit_gammas=None, stop_nconv=1,
+-                stopping_criterion="nconv".to_string(), logging=false, seed=0, min_log_prior_ratio=None))]
++                stopping_criterion="nconv".to_string(), logging=false, seed=0, min_log_prior_ratio=None, check_layers=None, quant=None))]
+             #[allow(clippy::missing_transmute_annotations, clippy::too_many_arguments)]
+             pub fn new(
+                 py: Python<'_>,
+@@ -49,6 +49,8 @@ macro_rules! create_bp_interface {
+                 logging: bool,
+                 seed: u64,
+                 min_log_prior_ratio: Option<f64>,
++                check_layers: Option<Vec<usize>>,
++                quant: Option<String>,
+             ) -> PyResult<(Self, DynDecoder)> {
+                 let min_sum_decoder = Self {};
+ 
+@@ -63,6 +65,9 @@ macro_rules! create_bp_interface {
+                     int_bits: None,
+                     frac_bits: None,
+                     min_log_prior_ratio,
++                    check_layers: check_layers.map(Arc::new),
++                    // MODIFIED (SORTQ): integer emulation, "none" | "intN.S.M" | "wide"
++                    quant: quant.as_deref().and_then(QuantFormat::parse),
+                 };
+ 
+                 let stopping_criterion = match stopping_criterion.as_str() {
+diff --git a/crates/relay_bp_py/src/decoder.rs b/crates/relay_bp_py/src/decoder.rs
+index a442078..4299fff 100644
+--- a/crates/relay_bp_py/src/decoder.rs
++++ b/crates/relay_bp_py/src/decoder.rs
+@@ -121,6 +121,16 @@ impl DecodeResult {
+     pub fn max_iter(&self) -> usize {
+         self.inner.max_iter
+     }
++
++    /// MODIFIED (SORTQ): integer-mode saturation counters [c2v, c2v clipped, v2c, v2c clipped,
++    /// marginal, marginal clipped, bias, bias clipped], or None in float mode.
++    #[getter]
++    pub fn quant_counts(&self) -> Option<Vec<u64>> {
++        match &self.inner.extra {
++            relay_bp::decoder::BPExtraResult::QuantCounts(c) => Some(c.to_vec()),
++            _ => None,
++        }
++    }
+ }
+ 
+ /// A Python module implemented in Rust.

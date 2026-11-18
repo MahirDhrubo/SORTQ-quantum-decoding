@@ -1,0 +1,6 @@
+#!/bin/bash
+# Test 2e: SORTQ flow entry point.  Usage: ./sortq build <circuit.stim> --basis {X,Z} [--out DIR] [--window W] [--order {rb,sweep}]
+# Runs scripts/sortq.py with the project venv that has pynauty + stim (the SORTQ Python environment).
+HERE="$(cd "$(dirname "$0")" && pwd)"
+PY="${SORTQ_PYTHON:-python3}"
+exec "$PY" "$HERE/scripts/sortq.py" "$@"

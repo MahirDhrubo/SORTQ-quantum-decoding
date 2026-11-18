@@ -1,0 +1,71 @@
+{
+ "test2a_dumps": {
+  "set": "2a_golden_seed20261113",
+  "shots": [
+   96,
+   106,
+   53
+  ],
+  "files": {
+   "dump_p0.003_shot{0,1,2}": [
+    96,
+    106,
+    53
+   ],
+   "dump_legs10_shot0": 53
+  }
+ },
+ "test2f_dumps": {
+  "set": "2a_golden_seed20261113",
+  "files": {
+   "dump_rb_shot{0,1,2}": [
+    96,
+    106,
+    53
+   ],
+   "dump_rb_legs10_shot0": 53,
+   "dump_rbx_shot{0,1}": [
+    5,
+    141
+   ],
+   "dump_rb_legs10b_shot0": 1855
+  },
+  "closed_loop_golden": [
+   96,
+   106,
+   53,
+   5,
+   141,
+   1855
+  ]
+ },
+ "test3d_dump2": {
+  "set": "p0.002_seed20261111",
+  "shot": 484,
+  "rule": "first of the first 40,000 Test 1b p = 0.002 shots converging in leg 1 (int4.2.8 sweep)"
+ },
+ "test3d": {
+  "sets": [
+   "p0.003_seed20261111",
+   "p0.002_seed20261111"
+  ],
+  "picks": {
+   "3d_picks_seed20261114.json": "initial 45 leg-0 + 5 legs-1-3 per p (numpy seed 20261114)",
+   "3d_picks2_seed20261115.json": "extended 450 + 50 per p (numpy seed 20261115, excluding the initial)"
+  },
+  "runs": {
+   "3d_shots_initial.txt": "first run (with backdoor), 103 shots",
+   "3d_shots_extended.txt": "extended run, 1,000 shots",
+   "3d_shots_no_backdoor.txt": "re-run without backdoor, 203 shots (3 golden + 200)"
+  }
+ },
+ "test2f": {
+  "sets": [
+   "p0.003_seed20261111",
+   "p0.002_seed20261111"
+  ],
+  "picks": {
+   "2f_picks_rb_seed20261116.json": "225 leg-0 + 25 legs-1-3 per p from the first 40,000 Test 1g rb13 shots (numpy seed 20261116)"
+  }
+ }
+}

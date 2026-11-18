@@ -1,0 +1,16 @@
+{
+ "tag": "p0.003",
+ "setting": "global",
+ "W": 37,
+ "C": 37,
+ "rounds": 36,
+ "shots": 30000,
+ "windows": 1,
+ "fails": 78,
+ "ler": 0.0026,
+ "ler_per_round": 7.240541046266147e-05,
+ "windows_not_converged": 17,
+ "shots_with_unconverged_window": 17,
+ "syndrome_mismatch_in_fully_converged_shots": 0,
+ "cpu_seconds": 1956.9854409694672
+}
