@@ -31,6 +31,9 @@ Exact package versions: `setup/requirements.txt`, `setup/requirements-queue.txt`
 ## 2. Setup (about 10 minutes)
 
 ```bash
+# if you downloaded a zip (e.g. from the anonymous mirror), restore the executable bits first
+chmod +x sortq $(find . -name '*.sh')
+
 # main environment: decoder, sampling, SORTQ flow
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r setup/requirements.txt
